@@ -1,0 +1,30 @@
+main:
+    pattern:  /
+    defaults: { _controller: NtechBoardBundle:Main:index }
+
+login:
+    pattern: /login
+    defaults: { _controller: NtechBoardBundle:Authorization:login }
+
+login_check:
+    pattern: /login_check
+
+logout:
+    pattern: /logout
+
+register:
+    pattern: /register
+    defaults: { _controller: NtechBoardBundle:Authorization:register }
+
+myboard:
+    pattern: /myboard
+    defaults: { _controller: NtechBoardBundle:Board:showMyBoard }
+
+search_user:
+    pattern: /search_user
+    defaults: { _controller: NtechBoardBundle:Main:searchUser }
+    methods: [GET]
+
+my_followers:
+    pattern: /my_followers
+    defaults: { _controller: NtechBoardBundle:Board:showMyFollowers }

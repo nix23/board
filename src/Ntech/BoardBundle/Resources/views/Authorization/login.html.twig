@@ -1,0 +1,40 @@
+{% extends 'NtechBoardBundle::layout.html.twig' %}
+
+{% block title %}
+    NTech Board - login
+{% endblock %}
+
+{% block header %}
+    Authorization
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/authorization/login.css') }}" type="text/css" media="all">
+{% endblock %}
+
+{% block content %}
+    {% if error %}
+        <div id="login-error">
+            {{ error.message }}
+        </div>
+    {% endif %}
+
+    <div id="login">
+        <form action="{{ path('login_check') }}" method="post">
+            <div class="form-row top-margin">
+                <div class="left"><label for="username">Username:</label></div>
+                <div class="right"><input type="text" id="username" name="_username" value="{{ last_username }}" class="input" /></div>
+            </div>
+
+            <div class="form-row">
+                <div class="left"><label for="password">Password:</label></div>
+                <div class="right"><input type="password" id="password" name="_password" class="input" /></div>
+            </div>
+
+            <div class="form-row">
+                <button type="submit" class="submit">Login</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

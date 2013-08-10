@@ -1,0 +1,23 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/header/authorized.css') }}" type="text/css" media="all">
+{% endblock %}
+
+<div class="header">
+    <div class="left">
+        <a href="{{ path('main') }}">nTech board</a>
+    </div>
+
+    <div class="center">
+        <div class="menu-element">
+            <a href="{{ path('myboard') }}">My Board</a>
+        </div>
+
+        <div class="menu-element">
+            <a href="{{ path('my_followers') }}">My Followers</a>
+        </div>
+    </div>
+
+    <div class="right">
+        <a href="{{ path('logout') }}">Logout</a>
+    </div>
+</div>

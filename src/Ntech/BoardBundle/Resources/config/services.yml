@@ -1,0 +1,7 @@
+parameters:
+#    ntech_board.example.class: Ntech\BoardBundle\Example
+
+services:
+#    ntech_board.example:
+#        class: %ntech_board.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

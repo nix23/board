@@ -1,0 +1,68 @@
+#main {
+	width: 960px;
+}
+
+#main .search {
+	width: 960px; height: 50px; line-height: 50px;
+}
+
+#main .search .legend {
+	float: left; width: 200px; height: 50px; line-height: 50px;
+	text-align: right; font-size: 22px; font-weight: bold;
+}
+
+#main .search .input-field {
+	float: left; width: 300px; height: 50px; line-height: 50px;
+}
+
+#main .search .button {
+	float: left; width: 100px; height: 50px; line-height: 50px;
+}
+
+#main .search .input {
+	font-family: Arial; font-size: 24px; width: 250px; height: 25px;
+	line-height: 25px;
+}
+
+#main .search .submit {
+	width: 100px; height: 30px; line-height: 1;
+	font-family: Arial; font-size: 18px; font-weight: bold;
+}
+
+#main .posts {
+	width: 960px; margin-top: 10px;
+}
+
+#main .posts .post {
+	width: 800px; margin-left: 80px; clear: both;
+}
+
+#main .posts .post .left {
+	float: left; width: 80px; height: 80px;
+}
+
+#main .posts .post .left .no-avatar {
+	width: 80px; height: 80px; background: rgb(210,210,210);
+	line-height: 80px; font-size: 14px; font-weight: bold;
+}
+
+#main .posts .post .center {
+	float: left; width: 505px; margin-left: 15px;
+}
+
+#main .posts .post .center .top {
+	width: 505px; height: 40px; line-height: 40px;
+	text-align: left; font-size: 26px; font-weight: bold;
+}
+
+#main .posts .post .center .bottom {
+	width: 505px; text-align: left;
+}
+
+#main .posts .post .right {
+	float: left; width: 200px; height: 80px; line-height: 80px;
+}
+
+#main .posts .separator {
+	width: 960px; height: 20px; clear: both;
+}

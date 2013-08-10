@@ -1,0 +1,39 @@
+Ntech\BoardBundle\Entity\User:
+  type: entity
+  table: user
+  repositoryClass: Ntech\BoardBundle\Repository\UserRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    username:
+      type: string
+      length: 255
+      unique: true
+    password:
+      type: string
+      length: 255
+    avatar:
+      type: string
+      length: 255
+      nullable: true
+  oneToMany:
+    messages:
+      targetEntity: Message
+      mappedBy: user
+  manyToMany:
+    followedByMe:
+      targetEntity: User
+      inversedBy: myFollowers
+      joinTable:
+        name: followings
+        joinColumns:
+          follower_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          followed_id:
+            referencedColumnName: id
+    myFollowers:
+      targetEntity: User
+      mappedBy: followedByMe

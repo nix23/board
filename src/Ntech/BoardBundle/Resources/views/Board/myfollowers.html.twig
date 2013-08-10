@@ -1,0 +1,57 @@
+{% extends 'NtechBoardBundle::layout.html.twig' %}
+
+{% block title %}
+    NTech Board - My Followers
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/board/myfollowers.css') }}" type="text/css" media="all">
+{% endblock %}
+
+{% block header %}
+    My followers
+{% endblock %}
+
+{% block content %}
+    <div id="myfollowers">
+        {% for follower in userFollowers %}
+            <div class="follower">
+                <div class="wrapper">
+
+                    <div class="left">
+                        <div class="avatar">
+                            {% if follower.avatar %}}
+                                <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ follower.avatar) }}"
+                                     width="80" height="80" />
+                            {% else %}
+                                <div class="no-avatar">
+                                    No avatar
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="heading">
+                           {{ follower.username }}
+                        </div>
+
+                        <div class="stats">
+                            Messages: {{ follower.newMessagesCount }}
+                            Reposts: {{ follower.repostsCount }}
+                            Replies: {{ follower.repliesCount }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+
+        {% if userFollowers is empty %}
+           <div class="no-followers">
+               You have no followers yet.
+           </div>
+        {% endif %}
+    </div>
+{% endblock %}

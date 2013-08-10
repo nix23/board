@@ -1,0 +1,74 @@
+{% extends 'NtechBoardBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/main/main.css') }}" type="text/css" media="all">
+{% endblock %}
+
+{% block header %}
+    Latest posts
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+
+        <div class="search">
+            <form action="{{ path('search_user') }}" method="get">
+                <div class="legend">
+                    Search for user:
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="username" value="" class="input" />
+                </div>
+
+                <div class="button">
+                    <input type="submit" class="submit" value="Search" />
+                </div>
+            </form>
+        </div>
+
+        <div class="posts">
+            {% for message in messages %}
+                <div class="post">
+                    <div class="left">
+                        {% if message.user.avatar %}
+                            <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ message.user.avatar) }}"
+                                 width="80" height="80" />
+                        {% else %}
+                            <div class="no-avatar">No avatar</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="center">
+                        <div class="top">
+                            {% if message.originalMessage %}
+                                {{ message.user.username }} reposted {{ message.originalMessage.user.username }} post
+                            {% else %}
+                                {{ message.user.username }} added new post
+                            {% endif %}
+                        </div>
+
+                        <div class="bottom">
+                            {% if message.originalMessage %}
+                                {{ message.originalMessage.user.username }} wrote: {{ message.originalMessage.text }}
+                                {% if message.text %}
+                                    <br>{{ message.user.username }} wrote: {{ message.text }}
+                                {% endif %}
+                            {% else %}
+                                {{ message.user.username }} wrote: {{ message.text }}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        {{ message.timeAgo }}
+                    </div>
+                </div>
+
+                <div class="separator"></div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

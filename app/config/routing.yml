@@ -1,0 +1,4 @@
+ntech_board:
+    resource: "@NtechBoardBundle/Resources/config/routing.yml"
+    prefix:   /
+

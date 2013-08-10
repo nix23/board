@@ -1,0 +1,33 @@
+Ntech\BoardBundle\Entity\Message:
+  type: entity
+  table: message
+  repositoryClass: Ntech\BoardBundle\Repository\MessageRepository
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    text:
+      type: string
+      length: 255
+    addedAt:
+      type: datetime
+  oneToMany:
+    reposts:
+      targetEntity: Message
+      mappedBy: originalMessage
+    replies:
+      targetEntity: Message
+      mappedBy: replyToMessage
+  manyToOne:
+    user:
+      targetEntity: User
+      inversedBy: messages
+    originalMessage:
+      targetEntity: Message
+      inversedBy: reposts
+    replyToMessage:
+      targetEntity: Message
+      inversedBy: replies
+  lifecycleCallbacks:
+    prePersist: [ setAddedAtValue ]

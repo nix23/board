@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}
+                NTech Board - Latest posts
+            {% endblock %}
+        </title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/main.css') }}" type="text/css" media="all">
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <div id="body-wrapper">
+
+            <div id="header">
+                {% if app.user %}
+                    {% include 'NtechBoardBundle:Header:authorized.html.twig' %}
+                {% else %}
+                    {% include 'NtechBoardBundle:Header:unauthorized.html.twig' %}
+                {% endif %}
+            </div>
+
+            <div id="content">
+                <div id="page-header">
+                    <h1>
+                        {% block header %}
+                        {% endblock %}
+                    </h1>
+                </div>
+
+                {% block content %}
+                    Main page
+                {% endblock %}
+            </div>
+
+        </div>
+    </body>
+</html>

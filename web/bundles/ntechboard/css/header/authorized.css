@@ -1,0 +1,27 @@
+.header {
+	width: 960px; height: 120px; background: rgb(220,220,220);
+}
+
+.header .left {
+	float: left; width: 270px; height: 120px;
+	line-height: 120px;
+}
+
+.header .center {
+	float: left; width: 450px; height: 90px;
+	margin-top: 15px;
+}
+
+.header .center .menu-element {
+	float: left; width: 150px; height: 30px;
+	line-height: 30px;
+}
+
+.header .center .new-row {
+	clear: both;
+}
+
+.header .right {
+	float: left; width: 240px; height: 120px;
+	line-height: 120px;
+}

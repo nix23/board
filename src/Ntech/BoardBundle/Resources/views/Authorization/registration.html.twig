@@ -1,0 +1,52 @@
+{% extends 'NtechBoardBundle::layout.html.twig' %}
+
+{% block title %}
+    NTech Board - Registration
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/authorization/registration.css') }}" type="text/css" media="all">
+{% endblock %}
+
+{% block header %}
+    Registration
+{% endblock %}
+
+{% block content %}
+    <div id="registration">
+        {{ form_start(form) }}
+            <div class="errors">
+                {{ form_errors(form) }}
+            </div>
+
+            <div class="form-row top-margin">
+                <div class="left">{{ form_label(form.username) }}:</div>
+                <div class="right">{{ form_widget(form.username, {'attr': {'class': 'input'}}) }}</div>
+            </div>
+            <div class="error-row">
+                {{ form_errors(form.username) }}
+            </div>
+
+           <div class="form-row">
+                <div class="left">{{ form_label(form.password.password) }}:</div>
+                <div class="right">{{ form_widget(form.password.password) }}</div>
+            </div>
+            <div class="error-row">
+                {{ form_errors(form.password.password) }}
+            </div>
+
+           <div class="form-row">
+                <div class="left">{{ form_label(form.password.confirm) }}:</div>
+                <div class="right">{{ form_widget(form.password.confirm) }}</div>
+            </div>
+            <div class="error-row">
+                {{ form_errors(form.password.confirm) }}
+            </div>
+
+            <div class="form-row">
+                {{ form_row(form.register, {'attr': {'class': 'submit'}}) }}
+            </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

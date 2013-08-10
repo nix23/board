@@ -1,0 +1,24 @@
+security:
+    firewalls:
+        secured_area:
+            pattern: ^/
+            anonymous: ~
+            form_login:
+                always_use_default_target_path: true
+                default_target_path: /myboard
+                login_path: /login
+                check_path: /login_check
+            logout:
+                path: /logout
+                target: /
+
+    access_control:
+      - { path: ^/myboard, roles: ROLE_USER }
+      - { path: ^/my_followers, roles: ROLE_USER }
+
+    providers:
+        main:
+            entity: { class: Ntech\BoardBundle\Entity\User, property: username }
+
+    encoders:
+      Ntech\BoardBundle\Entity\User: sha512

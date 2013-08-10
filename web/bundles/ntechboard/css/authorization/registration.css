@@ -1,0 +1,42 @@
+#registration {
+	width: 500px; height: 320px; border: 2px rgb(210,210,210) solid;
+	margin-left: 230px; margin-top: 50px;
+}
+
+#registration .top-margin {
+	margin-top: 50px;
+}
+
+#registration .form-row {
+	width: 500px; height: 30px; line-height: 30px;
+}
+
+#registration .form-row .left {
+	float: left; width: 240px; height: 30px; line-height: 30px;
+	text-align: right; font-size: 24px; font-weight: bold;
+}
+
+#registration .form-row .right {
+	float: left; width: 260px; height: 30px; line-height: 30px;
+	text-align: left;
+}
+
+#registration .error-row {
+	width: 500px; height: 20px; line-height: 20px; color: red;
+	font-size: 14px; font-weight: bold;
+}
+
+#registration .errors {
+	width: 500px; height: 20px; line-height: 20px;
+	font-size: 18px; font-weight: bold; color: red;
+}
+
+#registration .input {
+	font-family: Arial; font-size: 24px; width: 200px; height: 25px;
+	line-height: 25px; margin-left: 5px;
+}
+
+#registration .submit {
+	width: 150px; height: 30px; line-height: 1;
+	font-family: Arial; font-size: 18px; font-weight: bold;
+}

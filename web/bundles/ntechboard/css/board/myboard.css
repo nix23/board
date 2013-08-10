@@ -1,0 +1,41 @@
+#myboard {
+	width: 960px;
+}
+
+#myboard .posts {
+	width: 960px; margin-top: 10px;
+}
+
+#myboard .posts .post {
+	width: 800px; margin-left: 80px; clear: both;
+}
+
+#myboard .posts .post .left {
+	float: left; width: 80px; height: 80px;
+}
+
+#myboard .posts .post .left .no-avatar {
+	width: 80px; height: 80px; background: rgb(210,210,210);
+	line-height: 80px; font-size: 14px; font-weight: bold;
+}
+
+#myboard .posts .post .center {
+	float: left; width: 505px; margin-left: 15px;
+}
+
+#myboard .posts .post .center .top {
+	width: 505px; height: 40px; line-height: 40px;
+	text-align: left; font-size: 26px; font-weight: bold;
+}
+
+#myboard .posts .post .center .bottom {
+	width: 505px; text-align: left;
+}
+
+#myboard .posts .post .right {
+	float: left; width: 200px; height: 80px; line-height: 80px;
+}
+
+#myboard .posts .separator {
+	width: 960px; height: 20px; clear: both;
+}

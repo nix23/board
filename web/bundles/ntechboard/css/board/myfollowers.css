@@ -1,0 +1,45 @@
+#myfollowers {
+	width: 960px;
+}
+
+#myfollowers .follower {
+	float: left; width: 480px; height: 120px;
+}
+
+#myfollowers .follower .wrapper {
+	width: 440px; height: 80px; margin: 18px;
+	border: 1px rgb(220,220,220) solid;
+}
+
+#myfollowers .follower .left {
+	float: left; width: 100px; height: 80px;
+}
+
+#myfollowers .follower .left .avatar {
+	width: 80px; height: 80px; margin-left: 10px;
+}
+
+#myfollowers .follower .left .avatar .no-avatar {
+	width: 80px; height: 80px; background: rgb(220,220,220);
+	font-size: 14px; font-weight: bold; line-height: 80px;
+}
+
+#myfollowers .follower .right {
+	float: left; width: 340px; height: 80px;
+}
+
+#myfollowers .follower .right .heading {
+	width: 340px; height: 35px; font-size: 30px; font-weight: bold;
+	text-align: left;
+}
+
+#myfollowers .follower .right .stats {
+	width: 340px; height: 45px; text-align: left;
+}
+
+#myfollowers .no-followers {
+	width: 450px; height: 150px; line-height: 150px;
+	margin-left: 255px; margin-top: 100px;
+	font-size: 20px; font-weight: bold;
+	background: rgb(220,220,220);
+}

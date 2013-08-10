@@ -1,0 +1,67 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td {
+	padding: 0; margin: 0;
+}
+
+table {
+	border-collapse: collapse; border-spacing: 0;
+}
+
+fieldset,img {
+	border: 0;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-weight: normal; font-style: normal;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+caption,th {
+	text-align: left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: normal; font-size: 100%;
+}
+
+q:before,q:after {
+	content:'';
+}
+
+abbr,acronym {
+	border: 0;
+}
+
+html,body {
+	font-family: Arial;
+}
+
+body {
+	background: rgb(235,235,235);
+}
+
+#body-wrapper {
+	width: 100%; height: 100%; text-align: center;
+}
+
+#header {
+	width: 960px; height: 120px; margin-left: auto;
+	margin-right: auto;
+}
+
+#content {
+	width: 960px; height: 120px; margin-left: auto;
+	margin-right: auto;
+}
+
+#page-header {
+	width: 960px; height: 60px; line-height: 60px;
+	text-align: left;
+}
+
+#page-header h1 {
+	margin-left: 40px; font-size: 36px; font-weight: bold;
+}
