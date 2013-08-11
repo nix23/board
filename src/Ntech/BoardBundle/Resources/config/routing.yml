@@ -1,6 +1,16 @@
 main:
-    pattern:  /
+  pattern: /{page}/{days}
+  defaults: { _controller: NtechBoardBundle:Main:index, page: 1, days: 1 }
+  requirements:
+    days: 1|7|31
+    page: \d+
+
+main_with_params:
+    pattern:  /page-{page}/days-{days}
     defaults: { _controller: NtechBoardBundle:Main:index }
+    requirements:
+      days: 1|7|31
+      page: \d+
 
 login:
     pattern: /login

@@ -2,8 +2,11 @@
 	width: 960px;
 }
 
+/******************************************************************/
+/*                        Search Box                              */
+/******************************************************************/
 #main .search {
-	width: 960px; height: 50px; line-height: 50px;
+	width: 960px; height: 50px;
 }
 
 #main .search .legend {
@@ -29,10 +32,98 @@
 	font-family: Arial; font-size: 18px; font-weight: bold;
 }
 
+#main .search .error {
+	float: left; width: 360px; height: 50px; line-height: 50px;
+	font-size: 18px; font-weight: bold; color: red;
+}
+
+#main .controls {
+	width: 960px; height: 60px;
+}
+
+/******************************************************************/
+/*                        Pagination                              */
+/******************************************************************/
+#main .controls .pagination {
+	position: relative; float: left; width: 300px; height: 60px;
+}
+
+#main .controls .pagination .wrapper {
+	position: absolute; width: 280px; height: 30px; top: 50%; margin-top: -15px;
+	left: 20px;
+}
+
+#main .controls .pagination .page {
+	float: left; margin-left: 5px; width: 30px; height: 30px;
+	border: 1px rgb(210,210,210) solid;
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	line-height: 30px; text-align: center;
+}
+
+#main .controls .pagination .selected {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#main .controls .pagination .active {
+	background: rgb(240,240,240); color: black;
+}
+
+#main .controls .pagination .active:hover {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#main .controls .pagination .number {
+	font-size: 16px; font-weight: bold;
+	letter-spacing: -2px; padding-right: 1px;
+}
+
+/******************************************************************/
+/*                        Sorting                                 */
+/******************************************************************/
+#main .controls .sorting {
+	float: left; width: 400px; height: 60px;
+}
+
+#main .controls .sorting .heading {
+	float: left; width: 80px; height: 60px; line-height: 60px; text-align: right;
+	font-size: 18px; font-weight: bold; letter-spacing: -1px;
+}
+
+#main .controls .sorting .wrapper {
+	position: relative; float: left; width: 100px; height: 60px;
+}
+
+#main .controls .sorting .item {
+	position: absolute; left: 50%; margin-left: -45px; top: 50%; margin-top: -12px;
+	width: 90px; height: 25px; line-height: 25px; text-align: center;
+	font-size: 16px; font-weight: bold; letter-spacing: -1px;
+	border: 1px rgb(210,210,210) solid; color: black;
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
+#main .controls .sorting .active {
+	background: rgb(240,240,240);
+}
+
+#main .controls .sorting .active:hover {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#main .controls .sorting .selected {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#main .controls .sorting a {
+	text-decoration: none;
+}
+
 #main .posts {
 	width: 960px; margin-top: 10px;
 }
 
+/******************************************************************/
+/*                            Post                                */
+/******************************************************************/
 #main .posts .post {
 	width: 800px; margin-left: 80px; clear: both;
 }

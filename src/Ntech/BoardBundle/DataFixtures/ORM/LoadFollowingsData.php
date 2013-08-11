@@ -10,22 +10,22 @@ class LoadFollowingsData extends AbstractFixture implements OrderedFixtureInterf
 {
 	public function load(ObjectManager $em)
 	{
-		$firstUser = $em->merge($this->getReference('first-user'));
-		$secondUser = $em->merge($this->getReference('second-user'));
-		$thirdUser = $em->merge($this->getReference('third-user'));
+		$createdUsers = array();
 
-		$firstUser->addFollowedByMe($secondUser);
-		$firstUser->addFollowedByMe($thirdUser);
+		for($count = 1; $count <= 40; $count++)
+			$createdUsers[] = $em->merge($this->getReference("user{$count}"));
 
-		$secondUser->addFollowedByMe($firstUser);
-		$secondUser->addFollowedByMe($thirdUser);
+		for($i = 0; $i <= 39; $i++)
+		{
+			for($j = 0; $j <= 39; $j++)
+			{
+				if($i != $j)
+					$createdUsers[$i]->addFollowedByMe($createdUsers[$j]);
+			}
+		}
 
-		$thirdUser->addFollowedByMe($firstUser);
-		$thirdUser->addFollowedByMe($secondUser);
-
-		$em->persist($firstUser);
-		$em->persist($secondUser);
-		$em->persist($thirdUser);
+		foreach($createdUsers as $user)
+			$em->persist($user);
 
 		$em->flush();
 	}

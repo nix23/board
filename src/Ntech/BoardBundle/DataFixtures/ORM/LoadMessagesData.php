@@ -10,47 +10,68 @@ class LoadMessagesData extends AbstractFixture implements OrderedFixtureInterfac
 {
 	public function load(ObjectManager $em)
 	{
-		$loadedUsers = array();
-		$loadedUsers[] = $em->merge($this->getReference('first-user'));
-		$loadedUsers[] = $em->merge($this->getReference('second-user'));
-		$loadedUsers[] = $em->merge($this->getReference('third-user'));
+		$createNewMessagesByUsers = array();
+		$createRepliesAndRepostsByUsers = array();
 
-		$addRepliesAndRepostsToMessages = array();
-		foreach($loadedUsers as $user)
+		for($count = 1; $count <= 40; $count++)
 		{
-			for($i = 0; $i <= 2; $i++)
-			{
-				$postedMessageByUser = new Message();
-				$postedMessageByUser->setText('TestMessage');
-				$postedMessageByUser->setUser($user);
+			$nextUser = $em->merge($this->getReference("user{$count}"));
 
-				$em->persist($postedMessageByUser);
-
-				if($i == 2)
-					$addRepliesAndRepostsToMessages[] = $postedMessageByUser;
-			}
+			if($count <= 30)
+				$createNewMessagesByUsers[] = $nextUser;
+			else
+				$createRepliesAndRepostsByUsers[] = $nextUser;
 		}
 
-		for($i = 2; $i >= 1; $i--)
+		$messageAddedAt = new \DateTime('2013-08-10 00:00:00');
+		$newMessageNumber = 1;
+		$replyNumber = 1;
+		$repostNumber = 1;
+
+		// Adding 2 new messages by every user.(from first 30)
+		// Also adding reply and repost to each of these messages
+		// by other users.(last 10)
+		foreach($createNewMessagesByUsers as $createNewMessageByUser)
 		{
-			$replyAndRepostByUser = $loadedUsers[0];
+			for($i = 0; $i <= 1; $i++)
+			{
+				$newMessageByUser = new Message();
+				$newMessageByUser->setText("New Message: {$newMessageNumber}");
+				$newMessageByUser->setUser($createNewMessageByUser);
+				$newMessageByUser->setAddedAt($messageAddedAt);
 
-			$reply = new Message();
-			$reply->setUser($replyAndRepostByUser);
-			$reply->setText('RepostTest');
-			$reply->setOriginalMessage($addRepliesAndRepostsToMessages[$i]);
+				$em->persist($newMessageByUser);
 
-			$repost = new Message();
-			$repost->setUser($replyAndRepostByUser);
-			$repost->setText('ReplyTest');
-			$repost->setReplyToMessage($addRepliesAndRepostsToMessages[$i]);
+				foreach($createRepliesAndRepostsByUsers as $createReplyAndRepostByUser)
+				{
+					$messageAddedAt->add(new \DateInterval('PT60S'));
+					$messageAddedAt = new \DateTime($messageAddedAt->format('Y-m-d H:i:s'));
 
-//			$addReplyAndRepostToMessage = $addRepliesAndRepostsToMessages[$i];
-//			$addReplyAndRepostToMessage->addReplie($reply);
-//			$addReplyAndRepostToMessage->addRepost($repost);
+					$replyToNewMessage = new Message();
+					$replyToNewMessage->setUser($createReplyAndRepostByUser);
+					$replyToNewMessage->setText("Reply: {$replyNumber}");
+					$replyToNewMessage->setAddedAt($messageAddedAt);
+					$replyToNewMessage->setReplyToMessage($newMessageByUser);
+					$replyNumber++;
 
-			$em->persist($reply);
-			$em->persist($repost);
+					$messageAddedAt->add(new \DateInterval('PT60S'));
+					$messageAddedAt = new \DateTime($messageAddedAt->format('Y-m-d H:i:s'));
+
+					$repostToNewMessage = new Message();
+					$repostToNewMessage->setUser($createReplyAndRepostByUser);
+					$repostToNewMessage->setText("Repost: {$repostNumber}");
+					$repostToNewMessage->setAddedAt($messageAddedAt);
+					$repostToNewMessage->setOriginalMessage($newMessageByUser);
+					$repostNumber++;
+
+					$em->persist($replyToNewMessage);
+					$em->persist($repostToNewMessage);
+				}
+
+				$messageAddedAt->add(new \DateInterval('PT60S'));
+				$messageAddedAt = new \DateTime($messageAddedAt->format('Y-m-d H:i:s'));
+				$newMessageNumber++;
+			}
 		}
 
 		$em->flush();

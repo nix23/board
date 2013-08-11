@@ -12,15 +12,26 @@ use Doctrine\ORM\EntityRepository;
  */
 class MessageRepository extends EntityRepository
 {
-	public function getAllMessagesAndRepostsPerLastDay($limit = 50)
+	public function getAllMessagesAndReposts($days = 1, $limit = 50, $offset = 0)
 	{
 		$query = $this->getEntityManager()->createQuery(
 			'SELECT m, u FROM NtechBoardBundle:Message m JOIN m.user u WHERE m.addedAt > :date
 			AND m.replyToMessage is NULL ORDER BY m.addedAt DESC'
-		)->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24)))
-		->setMaxResults($limit);
+		)->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)))
+		->setMaxResults($limit)
+		->setFirstResult($offset);
 
 		return $query->getResult();
+	}
+
+	public function getMessagesAndRepostsCount($days = 1)
+	{
+		$query = $this->getEntityManager()->createQuery(
+			'SELECT COUNT(m.id) FROM NtechBoardBundle:Message m WHERE m.addedAt > :date
+			 AND m.replyToMessage is NULL'
+		)->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)));
+
+		return $query->getSingleScalarResult();
 	}
 
 	public function getAllMessagesByUserIds($userIds = array())

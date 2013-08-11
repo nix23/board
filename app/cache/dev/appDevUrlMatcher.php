@@ -134,12 +134,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // main
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'main');
-            }
+        if (preg_match('#^/(?P<page>\\d+)?(?:/(?P<days>1|7|31))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'main')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MainController::indexAction',  'page' => 1,  'days' => 1,));
+        }
 
-            return array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MainController::indexAction',  '_route' => 'main',);
+        // main_with_params
+        if (0 === strpos($pathinfo, '/page') && preg_match('#^/page\\-(?P<page>\\d+)/days\\-(?P<days>1|7|31)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'main_with_params')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MainController::indexAction',));
         }
 
         if (0 === strpos($pathinfo, '/log')) {

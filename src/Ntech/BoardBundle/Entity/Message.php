@@ -259,6 +259,9 @@ class Message
      */
     public function setAddedAtValue()
     {
-        $this->addedAt = new \DateTime();
+		 if(!$this->getAddedAt())
+		 {
+          $this->addedAt = new \DateTime();
+		 }
     }
 }

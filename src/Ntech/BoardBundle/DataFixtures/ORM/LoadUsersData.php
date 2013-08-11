@@ -20,38 +20,25 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface, 
 
 	public function load(ObjectManager $em)
 	{
-		$firstUser = new User();
-		$firstUser->setUsername('user1');
+		// Creating 40 test users
+		for($count = 1; $count <= 40; $count++)
+		{
+			$user = new User();
+			$user->setUsername("user{$count}");
 
-		$factory = $this->container->get('security.encoder_factory');
-		$encoder = $factory->getEncoder($firstUser);
-		$encodedPassword = $encoder->encodePassword("testpassword", null);
-		$firstUser->setPassword($encodedPassword);
-		$firstUser->setAvatar("test-avatar.jpg");
+			$factory = $this->container->get('security.encoder_factory');
+			$encoder = $factory->getEncoder($user);
+			$encodedPassword = $encoder->encodePassword("testpassword", null);
+			$user->setPassword($encodedPassword);
 
-		$secondUser = new User();
-		$secondUser->setUsername('user2');
-		$factory = $this->container->get('security.encoder_factory');
-		$encoder = $factory->getEncoder($secondUser);
-		$encodedPassword = $encoder->encodePassword("testpassword", null);
-		$secondUser->setPassword($encodedPassword);
+			if($count % 2 == 0)
+				$user->setAvatar("test-avatar.jpg");
 
-		$thirdUser = new User();
-		$thirdUser->setUsername('user3');
-		$factory = $this->container->get('security.encoder_factory');
-		$encoder = $factory->getEncoder($thirdUser);
-		$encodedPassword = $encoder->encodePassword("testpassword", null);
-		$thirdUser->setPassword($encodedPassword);
-
-		$em->persist($firstUser);
-		$em->persist($secondUser);
-		$em->persist($thirdUser);
+			$em->persist($user);
+			$this->addReference("user{$count}", $user);
+		}
 
 		$em->flush();
-
-		$this->addReference('first-user', $firstUser);
-		$this->addReference('second-user', $secondUser);
-		$this->addReference('third-user', $thirdUser);
 	}
 
 	public function getOrder()

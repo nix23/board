@@ -32,6 +32,99 @@ class UserRepository extends EntityRepository
 		return $query->getSingleResult();
 	}
 
+	public function findAllByUsername($username)
+	{
+		$query = $this->getEntityManager()->createQuery(
+			"SELECT u FROM NtechBoardBundle:User u WHERE u.username LIKE :username"
+		)->setParameter('username', $username);
+
+		return $query->getResult();
+	}
+
+	private function attachMessagesCountToUsersByMatchingIds($users = array(),
+																				$messagesCountData = array(),
+																				$messagesType = "new")
+	{
+		if(count($messagesCountData) < 1)
+			return;
+
+		switch($messagesType)
+		{
+			case "new":
+				$setCountMethod = "setNewMessagesCount";
+				break;
+
+			case "replies":
+				$setCountMethod = "setRepostsCount";
+				break;
+
+			case "reposts":
+				$setCountMethod = "setRepliesCount";
+				break;
+
+			default:
+				throw new \Exception("Unknown messages type");
+				break;
+		}
+
+		foreach($messagesCountData as $countDataArray)
+		{
+			$userId = $countDataArray["id"];
+			$messagesCount = $countDataArray["messagesCount"];
+
+			foreach($users as $user)
+			{
+				if($user->getId() == $userId)
+				{
+					$user->$setCountMethod($messagesCount);
+				}
+			}
+		}
+	}
+
+	public function findMessagesCountPerEveryUser($users = array(), $messageTypes = array())
+	{
+		if(count($users) < 1)
+			return;
+
+		if(empty($messageTypes))
+			throw new \Exception("Empty \$messageTypes passed to findMessagesCountPerEveryUser.");
+
+		foreach($messageTypes as $messageType)
+		{
+			if(!in_array($messageType, array("new", "replies", "reposts")))
+			{
+				$errorMsg  = "Wrong \$messageType = '{$messageType}'' passed ";
+				$errorMsg .= "to findMessagesCountPerEveryUser.";
+				throw new \Exception($errorMsg);
+			}
+		}
+
+		$userIds = array();
+		foreach($users as $user)
+			$userIds[] = $user->getId();
+
+		if(in_array("new", $messageTypes))
+		{
+			$result = $this->findMessagesCountByUserIds($userIds, "new");
+			$this->attachMessagesCountToUsersByMatchingIds($users, $result, "new");
+		}
+
+		if(in_array("replies", $messageTypes))
+		{
+			$result = $this->findMessagesCountByUserIds($userIds, "replies");
+			$this->attachMessagesCountToUsersByMatchingIds($users, $result, "replies");
+		}
+
+		if(in_array("reposts", $messageTypes))
+		{
+			$result = $this->findMessagesCountByUserIds($userIds, "reposts");
+			$this->attachMessagesCountToUsersByMatchingIds($users, $result, "reposts");
+		}
+
+		return $users;
+	}
+
 	public function findMessagesCountByUserIds($userIds = array(),
 															 $messagesType = "new")
 	{

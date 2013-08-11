@@ -76,9 +76,8 @@ class __TwigTemplate_a0ce3e38eb8aac449736112082b7381f extends Twig_Template
                             ";
             // line 24
             if ($this->getAttribute($this->getContext($context, "follower"), "avatar")) {
-                echo "}
-                                <img src=\"";
                 // line 25
+                echo "                                <img src=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("bundles/ntechboard/img/uploads/" . $this->getAttribute($this->getContext($context, "follower"), "avatar"))), "html", null, true);
                 echo "\"
                                      width=\"80\" height=\"80\" />
@@ -153,6 +152,6 @@ class __TwigTemplate_a0ce3e38eb8aac449736112082b7381f extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  140 => 56,  134 => 52,  132 => 51,  129 => 50,  116 => 43,  112 => 42,  108 => 41,  101 => 37,  94 => 32,  88 => 28,  82 => 25,  78 => 24,  71 => 19,  67 => 18,  64 => 17,  61 => 16,  56 => 13,  53 => 12,  47 => 9,  42 => 8,  39 => 7,  34 => 4,  31 => 3,);
+        return array (  139 => 56,  133 => 52,  131 => 51,  128 => 50,  115 => 43,  111 => 42,  107 => 41,  100 => 37,  93 => 32,  87 => 28,  80 => 25,  78 => 24,  71 => 19,  67 => 18,  64 => 17,  61 => 16,  56 => 13,  53 => 12,  47 => 9,  42 => 8,  39 => 7,  34 => 4,  31 => 3,);
     }
 }
