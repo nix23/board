@@ -143,6 +143,24 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'main_with_params')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MainController::indexAction',));
         }
 
+        if (0 === strpos($pathinfo, '/ch')) {
+            // change_followed_by_me_status
+            if (0 === strpos($pathinfo, '/change-follow-status') && preg_match('#^/change\\-follow\\-status\\-(?P<userId>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'change_followed_by_me_status')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\UserController::changeFollowedByMeStatusAction',  '_format' => 'json',));
+            }
+
+            // check_if_message_already_reposted
+            if (0 === strpos($pathinfo, '/check_if_message_already_reposted') && preg_match('#^/check_if_message_already_reposted\\-(?P<originalMessageId>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'check_if_message_already_reposted')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MessageController::checkIfMessageAlreadyRepostedAction',  '_format' => 'json',));
+            }
+
+        }
+
+        // repost_message
+        if (0 === strpos($pathinfo, '/repost_message') && preg_match('#^/repost_message\\-(?P<originalMessageId>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'repost_message')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MessageController::repostMessageAction',  '_format' => 'json',));
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
                 // login

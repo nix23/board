@@ -1,0 +1,57 @@
+{% extends 'NtechBoardBundle::layout.html.twig' %}
+
+{% block title %}
+    NTech Board - Search Results
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/main/searchResults.css') }}" type="text/css" media="all">
+{% endblock %}
+
+{% block header %}
+    Search results
+{% endblock %}
+
+{% block content %}
+    <div id="search-results">
+        {% for user in users %}
+            <div class="user">
+                <div class="wrapper">
+
+                    <div class="left">
+                        <div class="avatar">
+                            {% if user.avatar %}
+                                <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ user.avatar) }}"
+                                     width="80" height="80" />
+                            {% else %}
+                                <div class="no-avatar">
+                                    No avatar
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="heading">
+                           {{ user.username }}
+                        </div>
+
+                        <div class="stats">
+                            Messages: {{ user.newMessagesCount }}
+                            Reposts: {{ user.repostsCount }}
+                            Replies: {{ user.repliesCount }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        {% endfor %}
+
+        {% if users is empty %}
+           <div class="no-results">
+               No users found.
+           </div>
+        {% endif %}
+    </div>
+{% endblock %}

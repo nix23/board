@@ -120,6 +120,49 @@
                     <div class="right">
                         {{ message.timeAgo }}
                     </div>
+
+                    <div class="separator">
+                    </div>
+
+                    <div class="footer">
+                        <div class="follow-status">
+                            {% if not message.user.isCurrentLoggedUser %}
+                                {% if app.user %}
+                                    <span onclick="ajax.process('{{ path('change_followed_by_me_status', { 'userId' : message.user.id }) }}',
+                                                                false,
+                                                                'modal_no_confirmation')" class="update-follow-status-{{ message.user.id }}">
+                                        {% if message.user.isFollowedByLoggedUser %}
+                                            Unfollow
+                                        {% else %}
+                                            Follow
+                                        {% endif %}
+                                    </span>
+                                {% else %}
+                                    <span onclick="alert('Please login to follow users')">
+                                        Follow
+                                    </span>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+
+                        <div class="repost"
+                             data-original-message-text="{{ message.originalMessage ? message.originalMessage.text : message.text }}"
+                             data-original-message-username="{{ message.originalMessage ? message.originalMessage.user.username : message.user.username }}"
+                             data-repost-url="{{ path('repost_message', { 'originalMessageId': message.originalMessage ? message.originalMessage.id : message.id }) }}">
+                            {% if app.user %}
+                                <span onclick="ajax.process('{{ path('check_if_message_already_reposted',
+                                      { 'originalMessageId' : message.originalMessage ? message.originalMessage.id : message.id }) }}',
+                                                            this,
+                                                            'modal_no_confirmation')">
+                                    Repost
+                                </span>
+                            {% else %}
+                                <span onclick="alert('Please login to repost messages')">
+                                    Repost
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
 
                 <div class="separator"></div>

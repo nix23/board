@@ -125,7 +125,7 @@
 /*                            Post                                */
 /******************************************************************/
 #main .posts .post {
-	width: 800px; margin-left: 80px; clear: both;
+	width: 900px; margin-left: 30px; clear: both;
 }
 
 #main .posts .post .left {
@@ -138,22 +138,45 @@
 }
 
 #main .posts .post .center {
-	float: left; width: 505px; margin-left: 15px;
+	float: left; width: 605px; margin-left: 15px;
 }
 
 #main .posts .post .center .top {
-	width: 505px; height: 40px; line-height: 40px;
+	width: 605px; height: 40px; line-height: 40px;
 	text-align: left; font-size: 26px; font-weight: bold;
 }
 
 #main .posts .post .center .bottom {
-	width: 505px; text-align: left;
+	width: 605px; text-align: left;
 }
 
 #main .posts .post .right {
 	float: left; width: 200px; height: 80px; line-height: 80px;
 }
 
+#main .posts .post .footer {
+	clear: both; width: 900px; height: 25px; line-height: 25px;
+	background: rgb(220,220,220); margin-top: 5px;
+}
+
+#main .posts .post .footer .follow-status {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 15px; font-weight: bold; font-size: 14px;
+}
+
+#main .posts .post .footer .follow-status:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#main .posts .post .footer .repost {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 250px; font-weight: bold; font-size: 14px;
+}
+
+#main .posts .post .footer .repost:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
 #main .posts .separator {
-	width: 960px; height: 20px; clear: both;
+	width: 960px; height: 10px; clear: both;
 }

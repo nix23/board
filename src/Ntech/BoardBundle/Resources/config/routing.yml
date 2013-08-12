@@ -12,6 +12,24 @@ main_with_params:
       days: 1|7|31
       page: \d+
 
+change_followed_by_me_status:
+    pattern: /change-follow-status-{userId}
+    defaults: { _controller: NtechBoardBundle:User:changeFollowedByMeStatus, _format: json }
+    requirements:
+      userId: \d+
+
+check_if_message_already_reposted:
+    pattern: /check_if_message_already_reposted-{originalMessageId}
+    defaults: { _controller: NtechBoardBundle:Message:checkIfMessageAlreadyReposted, _format: json }
+    requirements:
+      originalMessageId: \d+
+
+repost_message:
+    pattern: /repost_message-{originalMessageId}
+    defaults: { _controller: NtechBoardBundle:Message:repostMessage, _format: json }
+    requirements:
+      originalMessageId: \d+
+
 login:
     pattern: /login
     defaults: { _controller: NtechBoardBundle:Authorization:login }

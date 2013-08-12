@@ -49,6 +49,9 @@ class User implements UserInterface
 	 private $repostsCount = 0;
 	 private $repliesCount = 0;
 
+	 private $isCurrentLoggedUser = false;
+	 private $isFollowedByLoggedUser = false;
+
     /**
      * Constructor
      */
@@ -58,6 +61,26 @@ class User implements UserInterface
         $this->followedByMe = new \Doctrine\Common\Collections\ArrayCollection();
         $this->myFollowers = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+	 public function setAsCurrentLoggedUser()
+	 {
+		 $this->isCurrentLoggedUser = true;
+	 }
+
+	 public function isCurrentLoggedUser()
+	 {
+		 return $this->isCurrentLoggedUser;
+	 }
+
+	 public function setAsFollowedByLoggedUser()
+	 {
+		 $this->isFollowedByLoggedUser = true;
+	 }
+
+	 public function isFollowedByLoggedUser()
+	 {
+		 return $this->isFollowedByLoggedUser;
+	 }
 
 	 public function setNewMessagesCount($newMessagesCount)
 	 {

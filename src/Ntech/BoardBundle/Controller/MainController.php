@@ -11,6 +11,7 @@ class MainController extends Controller
 	{
 		$em = $this->getDoctrine()->getEntityManager();
 		$messagesRepository = $em->getRepository('NtechBoardBundle:Message');
+		$usersRepository = $em->getRepository('NtechBoardBundle:User');
 
 		$messagesAndRepostsTotalCount = $messagesRepository->getMessagesAndRepostsCount($days);
 		$messagesAndRepostsPerPageCount = $this->container->getParameter('posts_count_on_main');
@@ -24,6 +25,23 @@ class MainController extends Controller
 		$messages = $messagesRepository->getAllMessagesAndReposts($days,
 																					 $messagesAndRepostsPerPageCount,
 																					 $paginator->get_offset());
+
+		if($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
+		{
+			$loggedUser = $this->getUser();
+			$users = array();
+
+			foreach($messages as $message)
+			{
+				$user = $message->getUser();
+				if($user->getId() == $loggedUser->getId())
+					$user->setAsCurrentLoggedUser();
+
+				$users[] = $user;
+			}
+
+			$usersRepository->findIfEveryUserIsFollowedByLoggedUser($users, $loggedUser);
+		}
 
 		return $this->render('NtechBoardBundle:Main:main.html.twig', array(
 			'messages' => $messages,
@@ -64,6 +82,9 @@ class MainController extends Controller
 		{
 			$em = $this->getDoctrine()->getEntityManager();
 			$users = $em->getRepository('NtechBoardBundle:User')->findAllByUsername($searchUsername);
+
+			$em->getRepository('NtechBoardBundle:User')->findMessagesCountPerEveryUser($users,
+																												array("new", "replies", "reposts"));
 
 			return $this->render('NtechBoardBundle:Main:searchResults.html.twig', array(
 				'users' => $users

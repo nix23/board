@@ -51,4 +51,15 @@ class MessageRepository extends EntityRepository
 
 		return $query->getResult();
 	}
+
+	public function isMessageRepostedByUser($messageId, $userId)
+	{
+		$query = $this->getEntityManager()->createQuery(
+			"SELECT COUNT(om.id) FROM NtechBoardBundle:Message m JOIN m.originalMessage om
+			 JOIN m.user u WHERE u.id = :userId AND om.id = :messageId"
+		)->setParameter('messageId', $messageId)->setParameter('userId', $userId);
+
+		$count = $query->getSingleScalarResult();
+		return ($count > 0) ? true : false;
+	}
 }

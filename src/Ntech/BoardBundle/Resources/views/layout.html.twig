@@ -13,11 +13,89 @@
         {% endblock %}
 
         {% block javascripts %}
+            <script src="{{ asset('bundles/ntechboard/js/jquery.js') }}"></script>
+            <script src="{{ asset('bundles/ntechboard/js/overlay.js') }}"></script>
+            <script src="{{ asset('bundles/ntechboard/js/modal_loading.js') }}"></script>
+            <script src="{{ asset('bundles/ntechboard/js/ajax.js') }}"></script>
+            <script src="{{ asset('bundles/ntechboard/js/form_tools.js') }}"></script>
+            <script src="{{ asset('bundles/ntechboard/js/initialize.js') }}"></script>
         {% endblock %}
     </head>
 
     <body>
         <div id="body-wrapper">
+
+            <div id="overlay">
+            </div>
+
+            <div id="overlay-loading">
+                <div class="wrapper">
+                    <div class="message">
+                    </div>
+
+                    <div class="icon">
+                    </div>
+                </div>
+            </div>
+
+            <div id="message-response-form">
+                <form name="message-response-form">
+
+                    <div class="heading">
+                        <div class="legend">
+                            <div class="label">
+                            </div>
+                        </div>
+
+                        <div class="close">
+                            <span class="button"
+                                  onclick="form_tools.message_response_form.hide()">
+                                Close
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="element-row first-row">
+                        <div class="left">
+                            <div class="legend">
+                            </div>
+
+                            <div class="sublabel">
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <textarea name="message[messageText]" class="textarea"
+                                      id="message-response-form-message-text" readonly></textarea>
+                        </div>
+                    </div>
+
+                    <div class="element-row second-row">
+                        <div class="left">
+                            <div class="legend">
+                            </div>
+
+                            <div class="sublabel">
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <textarea name="message[responseText]" class="textarea"
+                                      id="message-response-form-response-text" ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <div class="save">
+                            <button type="button" class="submit">Add</button>
+                        </div>
+
+                        <div class="loading" id="message-response-form-loading">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
 
             <div id="header">
                 {% if app.user %}

@@ -42,6 +42,30 @@ class User extends \Ntech\BoardBundle\Entity\User implements \Doctrine\ORM\Proxy
     }
 
     
+    public function setAsCurrentLoggedUser()
+    {
+        $this->__load();
+        return parent::setAsCurrentLoggedUser();
+    }
+
+    public function isCurrentLoggedUser()
+    {
+        $this->__load();
+        return parent::isCurrentLoggedUser();
+    }
+
+    public function setAsFollowedByLoggedUser()
+    {
+        $this->__load();
+        return parent::setAsFollowedByLoggedUser();
+    }
+
+    public function isFollowedByLoggedUser()
+    {
+        $this->__load();
+        return parent::isFollowedByLoggedUser();
+    }
+
     public function setNewMessagesCount($newMessagesCount)
     {
         $this->__load();

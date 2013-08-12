@@ -36,7 +36,7 @@ class UserRepository extends EntityRepository
 	{
 		$query = $this->getEntityManager()->createQuery(
 			"SELECT u FROM NtechBoardBundle:User u WHERE u.username LIKE :username"
-		)->setParameter('username', $username);
+		)->setParameter('username', "%{$username}%");
 
 		return $query->getResult();
 	}
@@ -163,5 +163,35 @@ class UserRepository extends EntityRepository
 		);
 
 		return $query->getResult();
+	}
+
+	public function findIfEveryUserIsFollowedByLoggedUser($users, $loggedUser)
+	{
+		if(count($users) < 1)
+			return;
+
+		$userIds = array();
+		foreach($users as $user)
+		{
+			if(!$user->isCurrentLoggedUser())
+				$userIds[] = (int)$user->getId();
+		}
+
+		$userIdsString = implode(", ", $userIds);
+
+		$query = $this->getEntityManager()->createQuery(
+			"SELECT u.id FROM NtechBoardBundle:User u JOIN u.myFollowers f
+			 WHERE u.id IN ($userIdsString) AND f.id = :loggedUserId"
+		)->setParameter('loggedUserId', $loggedUser->getId());
+
+		$resultSet = $query->getResult();
+		foreach($resultSet as $row)
+		{
+			foreach($users as $user)
+			{
+				if($user->getId() == $row["id"])
+					$user->setAsFollowedByLoggedUser();
+			}
+		}
 	}
 }

@@ -23,7 +23,9 @@ class LoadMessagesData extends AbstractFixture implements OrderedFixtureInterfac
 				$createRepliesAndRepostsByUsers[] = $nextUser;
 		}
 
-		$messageAddedAt = new \DateTime('2013-08-10 00:00:00');
+		$messageAddedAt = new \DateTime();
+		$messageAddedAt->sub(new \DateInterval('P1D'));
+		$messageAddedAt = new \DateTime($messageAddedAt->format('Y-m-d H:i:s'));
 		$newMessageNumber = 1;
 		$replyNumber = 1;
 		$repostNumber = 1;
