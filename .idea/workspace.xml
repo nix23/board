@@ -4,7 +4,7 @@
     <list default="true" id="0e660e6f-8904-40cf-8947-43fe822fee68" name="Default" comment="" />
     <ignored path="board.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.xml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376162587643" ignored="false" />
+    <file path="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.xml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376420982645" ignored="false" />
     <file path="/parameters.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375354051562" ignored="false" />
     <file path="/Users.orm.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375354680617" ignored="false" />
     <file path="/Following.orm.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375388033524" ignored="false" />
@@ -17,16 +17,16 @@
     <file path="/User.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376249573805" ignored="false" />
     <file path="/User.orm.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375863020155" ignored="false" />
     <file path="/Message.orm.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376142945050" ignored="false" />
-    <file path="/Message.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376213163119" ignored="false" />
-    <file path="/AppKernel.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375392448462" ignored="false" />
+    <file path="/Message.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376398832785" ignored="false" />
+    <file path="/AppKernel.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376420266687" ignored="false" />
     <file path="/LoadUsersData.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376210459350" ignored="false" />
     <file path="/LoadMessagesData.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376251749566" ignored="false" />
     <file path="/LoadFollowingsData.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376170310521" ignored="false" />
     <file path="/DefaultController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375798808365" ignored="false" />
-    <file path="/MainController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376330246173" ignored="false" />
-    <file path="/routing.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376338868768" ignored="false" />
-    <file path="/layout.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376333048330" ignored="false" />
-    <file path="/main.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376328690645" ignored="false" />
+    <file path="/MainController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376425505688" ignored="false" />
+    <file path="/routing.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376413928535" ignored="false" />
+    <file path="/layout.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376422124328" ignored="false" />
+    <file path="/main.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376400732986" ignored="false" />
     <file path="/unauthorized.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375823374400" ignored="false" />
     <file path="/header.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375809088321" ignored="false" />
     <file path="/unauthorized.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375908182658" ignored="false" />
@@ -35,33 +35,36 @@
     <file path="/login.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375978691794" ignored="false" />
     <file path="/BoardController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376238308533" ignored="false" />
     <file path="/login.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375823276830" ignored="false" />
-    <file path="/main.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376338847689" ignored="false" />
-    <file path="/MessageRepository.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376330874688" ignored="false" />
+    <file path="/main.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376418038426" ignored="false" />
+    <file path="/MessageRepository.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376408362334" ignored="false" />
     <file path="/DateUtils.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375895286901" ignored="false" />
     <file path="/a.dummy" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375895876649" ignored="false" />
-    <file path="/DatetimeUtils.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375896427251" ignored="false" />
+    <file path="/DatetimeUtils.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376419913594" ignored="false" />
     <file path="/authorized.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375991048383" ignored="false" />
     <file path="/authorized.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375908140740" ignored="false" />
-    <file path="/UserRepository.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376252268113" ignored="false" />
+    <file path="/UserRepository.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376404799621" ignored="false" />
     <file path="/myfollowers.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375968357443" ignored="false" />
     <file path="/myfollowers.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375968420631" ignored="false" />
-    <file path="/validation.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375977446563" ignored="false" />
+    <file path="/validation.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376417659518" ignored="false" />
     <file path="/UserType.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375985011836" ignored="false" />
     <file path="/registration.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375987773935" ignored="false" />
     <file path="/registration.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375987820629" ignored="false" />
-    <file path="/config.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376215810945" ignored="false" />
-    <file path="/myboard.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375997521024" ignored="false" />
+    <file path="/config.yml" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376420006110" ignored="false" />
+    <file path="/myboard.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376426878244" ignored="false" />
     <file path="/myboard.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375995874716" ignored="false" />
     <file path="/Paginator.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376221056046" ignored="false" />
     <file path="/searchResults.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376240310796" ignored="false" />
     <file path="/searchResults.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376240298069" ignored="false" />
-    <file path="/UserController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376311573048" ignored="false" />
-    <file path="/ajax.js" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376339140784" ignored="false" />
+    <file path="/UserController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376340174580" ignored="false" />
+    <file path="/ajax.js" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376423391820" ignored="false" />
     <file path="/AjaxResponse.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376302170387" ignored="false" />
-    <file path="/MessageController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376339344629" ignored="false" />
+    <file path="/MessageController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376417203014" ignored="false" />
     <file path="/initialize.js" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376328427933" ignored="false" />
-    <file path="/form_tools.js" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376334835697" ignored="false" />
+    <file path="/form_tools.js" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376416490589" ignored="false" />
     <file path="/overlay.js" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376328612461" ignored="false" />
+    <file path="/replies.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376391405807" ignored="false" />
+    <file path="/replies.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376425623337" ignored="false" />
+    <file path="/html_tools.js" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376423407541" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,33 +79,14 @@
     <disable_hints />
   </component>
   <component name="DockManager">
-    <window id="9">
+    <window id="12">
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/UserController.php">
+            <file leaf-file-name="ajax.js" pinned="false" current="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/ajax.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="30" column="0" selection-start="934" selection-end="934" vertical-scroll-proportion="0.22962964">
-                    <folding>
-                      <element signature="e#47#104#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-    <window id="10">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="MessageRepository.php" pinned="false" current="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/MessageRepository.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="58" column="24" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.6909871">
+                  <state line="86" column="10" selection-start="2805" selection-end="2805" vertical-scroll-proportion="0.83832335">
                     <folding />
                   </state>
                 </provider>
@@ -119,32 +103,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="14" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MessageController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MessageController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="45" selection-start="2551" selection-end="2551" vertical-scroll-proportion="0.8135593">
+            <state line="143" column="44" selection-start="4443" selection-end="4443" vertical-scroll-proportion="-19.761906">
               <folding>
                 <element signature="e#47#88#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MainController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="90" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-14.857142">
-              <folding>
-                <element signature="e#47#104#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,34 +117,27 @@
       <file leaf-file-name="main.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Main/main.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="153" column="49" selection-start="6786" selection-end="6786" vertical-scroll-proportion="-12.238095">
+            <state line="209" column="24" selection-start="9765" selection-end="9765" vertical-scroll-proportion="-72.809525">
+              <folding>
+                <element signature="e#9665#9686#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MainController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="4" selection-start="278" selection-end="278" vertical-scroll-proportion="-4.571429">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/css/main/main.css">
+      <file leaf-file-name="html_tools.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/html_tools.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="59" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/ajax.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="46" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_tools.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/form_tools.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="90" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
+            <state line="31" column="7" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -189,16 +146,34 @@
       <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="42" selection-start="2648" selection-end="2648" vertical-scroll-proportion="-7.095238">
+            <state line="94" column="0" selection-start="3609" selection-end="3609" vertical-scroll-proportion="-15.761905">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/css/main.css">
+      <file leaf-file-name="replies.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Shared/replies.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="52" selection-start="2690" selection-end="2690" vertical-scroll-proportion="0.0">
+            <state line="24" column="44" selection-start="813" selection-end="813" vertical-scroll-proportion="-13.714286">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Message.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Entity/Message.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="88" column="79" selection-start="1666" selection-end="1666" vertical-scroll-proportion="-49.714287">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form_tools.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/form_tools.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="70" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.6210526">
               <folding />
             </state>
           </provider>
@@ -214,31 +189,31 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/UserRepository.php" />
-        <option value="$PROJECT_DIR$/web/bundles/ntechboard/js/modal_loading.js" />
-        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Utils/AjaxResponse.php" />
-        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/web/bundles/ntechboard/css/main/main.css" />
-        <option value="$PROJECT_DIR$/web/bundles/ntechboard/js/initialize.js" />
-        <option value="$PROJECT_DIR$/web/bundles/ntechboard/js/overlay.js" />
-        <option value="$PROJECT_DIR$/web/bundles/ntechboard/css/main.css" />
         <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/MessageRepository.php" />
-        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MainController.php" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MessageController.php" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/config/validation.yml" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Main/main.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/web/bundles/ntechboard/js/form_tools.js" />
-        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Main/main.html.twig" />
-        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/web/bundles/ntechboard/js/ajax.js" />
-        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MessageController.php" />
+        <option value="$PROJECT_DIR$/web/bundles/ntechboard/js/html_tools.js" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Utils/DatetimeUtils.php" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Entity/Message.php" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MainController.php" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Shared/replies.html.twig" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Board/myboard.html.twig" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="14" />
-    <option name="y" value="131" />
-    <option name="width" value="1637" />
-    <option name="height" value="835" />
+    <option name="x" value="-10" />
+    <option name="y" value="50" />
+    <option name="width" value="1692" />
+    <option name="height" value="866" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -392,6 +367,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="board" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="board" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ntechboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shared" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -604,6 +609,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="board" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="board" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ntech" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BoardBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Shared" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1022,6 +1061,7 @@
       <recent name="D:\Installed Soft\wamp\www\board\src\Ntech\BoardBundle\Utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Installed Soft\wamp\www\board\src\Ntech\BoardBundle\Resources\views\Shared" />
       <recent name="D:\Installed Soft\wamp\www\board\src\Ntech\BoardBundle\Form\Type" />
       <recent name="D:\Installed Soft\wamp\www\board\web\bundles\ntechboard\css" />
     </key>
@@ -1046,7 +1086,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="14" y="131" width="1637" height="835" extended-state="1" />
+    <frame x="-10" y="50" width="1692" height="866" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1054,7 +1094,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16286243" sideWeight="0.99421966" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20704058" sideWeight="0.99140894" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1128,125 +1168,123 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Entity/User.php">
+    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/css/shared/replies.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="7" selection-start="484" selection-end="484" vertical-scroll-proportion="0.46207702">
+        <state line="42" column="15" selection-start="961" selection-end="961" vertical-scroll-proportion="-24.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/initialize.js">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="3" selection-start="607" selection-end="607" vertical-scroll-proportion="0.46469247">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/overlay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="52" selection-start="465" selection-end="465" vertical-scroll-proportion="0.30068338">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="52" selection-start="2690" selection-end="2690" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/UserRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.8424737">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/css/main/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="59" selection-start="3863" selection-end="3863" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/form_tools.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="90" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="42" selection-start="2648" selection-end="2648" vertical-scroll-proportion="-7.095238">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="934" selection-end="934" vertical-scroll-proportion="0.22962964">
-          <folding>
-            <element signature="e#47#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/MessageRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="24" selection-start="1800" selection-end="1800" vertical-scroll-proportion="0.6909871">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Entity/Message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.3089431">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Main/main.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="49" selection-start="6786" selection-end="6786" vertical-scroll-proportion="-12.238095">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MainController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="90" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-14.857142">
-          <folding>
-            <element signature="e#47#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/ajax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="46" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="14" selection-start="963" selection-end="963" vertical-scroll-proportion="0.0">
+        <state line="68" column="25" selection-start="1861" selection-end="1861" vertical-scroll-proportion="0.9104478">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MessageController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="45" selection-start="2551" selection-end="2551" vertical-scroll-proportion="0.8135593">
+        <state line="143" column="44" selection-start="4443" selection-end="4443" vertical-scroll-proportion="-19.761906">
           <folding>
             <element signature="e#47#88#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="39" selection-start="140" selection-end="140" vertical-scroll-proportion="0.050139274">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="0" selection-start="3609" selection-end="3609" vertical-scroll-proportion="-15.761905">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/html_tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="7" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/MainController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="4" selection-start="278" selection-end="278" vertical-scroll-proportion="-4.571429">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Main/main.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="209" column="24" selection-start="9765" selection-end="9765" vertical-scroll-proportion="-72.809525">
+          <folding>
+            <element signature="e#9665#9686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Utils/DatetimeUtils.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="72" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.5683356">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Shared/replies.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="44" selection-start="813" selection-end="813" vertical-scroll-proportion="-13.714286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="10" selection-start="2805" selection-end="2805" vertical-scroll-proportion="0.83832335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/DataFixtures/ORM/LoadMessagesData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.38971582">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Entity/Message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="79" selection-start="1666" selection-end="1666" vertical-scroll-proportion="-49.714287">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Board/myfollowers.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Board/myboard.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="2455" selection-end="2455" vertical-scroll-proportion="0.8930988">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/ntechboard/js/form_tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="70" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.6210526">
+          <folding />
         </state>
       </provider>
     </entry>

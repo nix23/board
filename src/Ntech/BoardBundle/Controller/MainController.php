@@ -25,6 +25,7 @@ class MainController extends Controller
 		$messages = $messagesRepository->getAllMessagesAndReposts($days,
 																					 $messagesAndRepostsPerPageCount,
 																					 $paginator->get_offset());
+		$messagesRepository->findRepliesCountPerEveryMessage($messages);
 
 		if($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
 		{

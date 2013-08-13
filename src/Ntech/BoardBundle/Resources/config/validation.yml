@@ -8,3 +8,11 @@ Ntech\BoardBundle\Entity\User:
       - NotBlank: ~
       - Length:
           min: 5
+
+Ntech\BoardBundle\Entity\Message:
+  properties:
+    text:
+      - NotBlank: { message: Please enter message text }
+      - Length:
+          min: 5,
+          minMessage: Your message should consist at least of 5 chars

@@ -30,6 +30,18 @@ repost_message:
     requirements:
       originalMessageId: \d+
 
+load_replies:
+    pattern: /load_replies-{messageId}
+    defaults: { _controller: NtechBoardBundle:Message:loadReplies, _format: json }
+    requirements:
+      messageId: \d+
+
+reply_to_message:
+    pattern: /reply_to_message-{originalMessageId}
+    defaults: { _controller: NtechBoardBundle:Message:replyToMessage, _format: json }
+    requirements:
+      originalMessageId: \d+
+
 login:
     pattern: /login
     defaults: { _controller: NtechBoardBundle:Authorization:login }

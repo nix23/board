@@ -118,7 +118,13 @@
                     </div>
 
                     <div class="right">
-                        {{ message.timeAgo }}
+                        <div class="label">
+                            {{ message.timeAgoLabel }}
+                        </div>
+
+                        <div class="sublabel">
+                            {{ message.timeAgoSublabel }}
+                        </div>
                     </div>
 
                     <div class="separator">
@@ -162,8 +168,43 @@
                                 </span>
                             {% endif %}
                         </div>
+
+                        <div class="replies-count">
+                            <span class="highlight count">
+                                {{ message.repliesCount }}
+                            </span>
+                            <span class="label">
+                                {% if message.repliesCount == 1 %}
+                                    Reply
+                                {% else %}
+                                    Replies
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="toogle-replies"
+                             data-action="show"
+                             data-load-replies-url="{{ path('load_replies', { 'messageId': message.id }) }}"
+                             onclick="html_tools.replies_list.toogle({{ message.id }}, this)">
+                            Show
+                        </div>
+                        <div class="add-reply">
+                            {% if app.user %}
+                                <span onclick="form_tools.message_response_form.load_reply_form('{{ path('reply_to_message', {'originalMessageId': message.id }) }}',
+                                                                                                '{{ message.user.username }}',
+                                                                                                '{{ message.text }}',
+                                                                                                this)">
+                                    Add reply
+                                </span>
+                            {% else %}
+                                <span onclick="alert('Please login to reply to messages.')">
+                                    Add reply
+                                </span>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
+
+                <div class="replies-wrapper" id="replies-to-message-{{ message.id }}" style="display: none"></div>
 
                 <div class="separator"></div>
             {% endfor %}

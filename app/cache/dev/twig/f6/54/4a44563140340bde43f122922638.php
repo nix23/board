@@ -151,7 +151,9 @@ class __TwigTemplate_f6544a44563140340bde43f122922638 extends Twig_Template
                 echo "
                                 <br>";
                 // line 50
-                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "message"), "replyToMessage"), "text"), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "message"), "user"), "username"), "html", null, true);
+                echo " replied: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "message"), "text"), "html", null, true);
                 echo "
                             ";
             } else {
@@ -200,6 +202,6 @@ class __TwigTemplate_f6544a44563140340bde43f122922638 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  185 => 64,  173 => 58,  167 => 54,  159 => 52,  154 => 50,  147 => 49,  144 => 48,  136 => 46,  134 => 45,  127 => 44,  125 => 43,  120 => 40,  114 => 38,  106 => 36,  98 => 34,  96 => 33,  90 => 29,  86 => 27,  79 => 24,  77 => 23,  73 => 21,  69 => 20,  64 => 17,  61 => 16,  56 => 13,  53 => 12,  47 => 9,  42 => 8,  39 => 7,  34 => 4,  31 => 3,);
+        return array (  187 => 64,  175 => 58,  169 => 54,  161 => 52,  154 => 50,  147 => 49,  144 => 48,  136 => 46,  134 => 45,  127 => 44,  125 => 43,  120 => 40,  114 => 38,  106 => 36,  98 => 34,  96 => 33,  90 => 29,  86 => 27,  79 => 24,  77 => 23,  73 => 21,  69 => 20,  64 => 17,  61 => 16,  56 => 13,  53 => 12,  47 => 9,  42 => 8,  39 => 7,  34 => 4,  31 => 3,);
     }
 }

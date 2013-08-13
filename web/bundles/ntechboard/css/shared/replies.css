@@ -1,0 +1,54 @@
+.replies {
+	width: 810px; margin-left: 110px; clear: both;
+	border-left: 10px rgb(17,215,239) solid;
+	margin-top: 10px;
+}
+
+.replies .reply {
+	width: 810px; clear: both;
+}
+
+.replies .reply .left {
+	float: left; width: 80px; height: 80px;
+	margin-left: 15px;
+}
+
+.replies .reply .left .no-avatar {
+	width: 80px; height: 80px; background: rgb(210,210,210);
+	line-height: 80px; font-size: 14px; font-weight: bold;
+}
+
+.replies .reply .center {
+	float: left; width: 500px; margin-left: 15px;
+}
+
+.replies .reply .center .top {
+	width: 500px; height: 40px; line-height: 40px;
+	text-align: left; font-size: 26px; font-weight: bold;
+}
+
+.replies .reply .center .bottom {
+	width: 500px; text-align: left;
+}
+
+.replies .reply .right {
+	float: left; width: 200px; height: 80px; line-height: 80px;
+}
+
+.replies .reply .right .label {
+	width: 200px; height: 35px; line-height: 35px; color: rgb(17,215,239);
+	margin-top: 14px; font-weight: bold; font-size: 28px;
+}
+
+.replies .reply .right .sublabel {
+	width: 200px; height: 20px; line-height: 20px;
+	font-weight: bold; font-size: 20px;
+}
+
+.replies .reply-separator {
+	clear: both; width: 810px; height: 10px;
+}
+
+.replies .reply-bottom-separator {
+	clear: both; width: 810px; height: 1px;
+}

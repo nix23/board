@@ -1,6 +1,7 @@
 form_tools = {
 	message_response_form: {
 		is_active: false,
+		replyClickedDiv: false,
 
 		show: function(heading,
 							firstRowLegend,
@@ -45,6 +46,31 @@ form_tools = {
 			var scroll_offset   = $(window).scrollTop();
 
 			$("#message-response-form").css("top", (viewport_offset + scroll_offset) + "px");
+		},
+
+		load_reply_form: function(replyUrl,
+										  username,
+										  originalMessageText,
+										  replyClickedDiv)
+		{
+			this.replyClickedDiv = replyClickedDiv;
+			var submitButtonHtml = "<button type='button' class='submit'" +
+										  " id='message-response-form-submit'" +
+										  " onclick='ajax.process_form(\"message-response-form\"," +
+										  "									 \"" + replyUrl + "\"," +
+										  "                            false, " +
+										  "									 \"message_response_form\")" +
+										  "'>Add</button>";
+
+			this.show(
+				"Reply to message",
+				username + " wrote:",
+				"",
+				originalMessageText,
+				"Reply text<span class='required'>*</span>",
+				"Min length - 5 chars.",
+				submitButtonHtml
+			);
 		}
 	}
 }

@@ -62,4 +62,44 @@ class MessageRepository extends EntityRepository
 		$count = $query->getSingleScalarResult();
 		return ($count > 0) ? true : false;
 	}
+
+	public function findRepliesCountPerEveryMessage($messages = array())
+	{
+		if(count($messages) < 1)
+			return;
+
+		$messageIds = array();
+		foreach($messages as $message)
+			$messageIds[] = (int)$message->getId();
+
+		$messageIdsString = implode(", ", $messageIds);
+
+		$query = $this->getEntityManager()->createQuery(
+			"SELECT m.id, COUNT(r.id) AS repliesCount FROM NtechBoardBundle:Message m
+			 JOIN m.replies r WHERE r.replyToMessage IN ($messageIdsString) GROUP BY m.id"
+		);
+
+		$repliesCountData = $query->getResult();
+		foreach($repliesCountData as $replyCountData)
+		{
+			$messageId = $replyCountData["id"];
+			$repliesCount = $replyCountData["repliesCount"];
+
+			foreach($messages as $message)
+			{
+				if($message->getId() == $messageId)
+					$message->setRepliesCount($repliesCount);
+			}
+		}
+	}
+
+	public function getWithReplies($messageId)
+	{
+		$query = $this->getEntityManager()->createQuery(
+			"SELECT m, r FROM NtechBoardBundle:Message m LEFT JOIN m.replies r
+			 WHERE m.id = :messageId ORDER BY r.addedAt DESC"
+		)->setParameter('messageId', $messageId);
+
+		return $query->getSingleResult();
+	}
 }

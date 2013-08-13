@@ -167,15 +167,15 @@ class UserRepository extends EntityRepository
 
 	public function findIfEveryUserIsFollowedByLoggedUser($users, $loggedUser)
 	{
-		if(count($users) < 1)
-			return;
-
 		$userIds = array();
 		foreach($users as $user)
 		{
 			if(!$user->isCurrentLoggedUser())
 				$userIds[] = (int)$user->getId();
 		}
+
+		if(count($userIds) < 1)
+			return;
 
 		$userIdsString = implode(", ", $userIds);
 

@@ -151,7 +151,17 @@
 }
 
 #main .posts .post .right {
-	float: left; width: 200px; height: 80px; line-height: 80px;
+	float: left; width: 200px; height: 80px;
+}
+
+#main .posts .post .right .label {
+	width: 200px; height: 35px; line-height: 35px; color: rgb(17,215,239);
+	margin-top: 14px; font-weight: bold; font-size: 28px;
+}
+
+#main .posts .post .right .sublabel {
+	width: 200px; height: 20px; line-height: 20px;
+	font-weight: bold; font-size: 20px;
 }
 
 #main .posts .post .footer {
@@ -175,6 +185,30 @@
 
 #main .posts .post .footer .repost:hover {
 	color: rgb(17,215,239); cursor: pointer;
+}
+
+#main .posts .post .footer .replies-count {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 120px; font-weight: bold; font-size: 14px;
+}
+
+#main .posts .post .footer .toogle-replies {
+	float: left; width: 70px; height: 25px; line-height: 25px;
+	font-weight: bold; font-size: 14px;
+}
+
+#main .posts .post .footer .add-reply {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	font-weight: bold; font-size: 14px;
+}
+
+#main .posts .post .footer .toogle-replies:hover,
+#main .posts .post .footer .add-reply:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#main .posts .post .footer .highlight {
+	color: rgb(17,215,239);
 }
 
 #main .posts .separator {

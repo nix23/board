@@ -10,6 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/main.css') }}" type="text/css" media="all">
+            <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/shared/replies.css') }}" type="text/css" media="all">
         {% endblock %}
 
         {% block javascripts %}
@@ -18,6 +19,7 @@
             <script src="{{ asset('bundles/ntechboard/js/modal_loading.js') }}"></script>
             <script src="{{ asset('bundles/ntechboard/js/ajax.js') }}"></script>
             <script src="{{ asset('bundles/ntechboard/js/form_tools.js') }}"></script>
+            <script src="{{ asset('bundles/ntechboard/js/html_tools.js') }}"></script>
             <script src="{{ asset('bundles/ntechboard/js/initialize.js') }}"></script>
         {% endblock %}
     </head>
@@ -87,7 +89,8 @@
 
                     <div class="footer">
                         <div class="save">
-                            <button type="button" class="submit">Add</button>
+                            <button type="button" class="submit"
+                                    id="message-response-form-submit">Add</button>
                         </div>
 
                         <div class="loading" id="message-response-form-loading">

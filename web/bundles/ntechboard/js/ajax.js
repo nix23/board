@@ -29,6 +29,7 @@ ajax = {
 			var requestUrl = $(repostDiv).attr("data-repost-url");
 
 			var submitButtonHtml = "<button type='button' class='submit'" +
+										  " id='message-response-form-submit'" +
 										  " onclick='ajax.process_form(\"message-response-form\"," +
 										  "                            \"" + requestUrl + "\"," +
 										  "                            false, " +
@@ -44,6 +45,46 @@ ajax = {
 				"",
 				submitButtonHtml
 			);
+		},
+
+		showRepliesList: function()
+		{
+			html_tools.replies_list.update_html(this.data.repliesHtml);
+			html_tools.replies_list.show();
+		},
+
+		updateRepliesList: function()
+		{
+			$("#replies-to-message-" + this.data.originalMessageId).html(this.data.repliesHtml);
+			var replyClickedDiv = $(form_tools.message_response_form.replyClickedDiv).closest(".add-reply");
+
+			var repliesCountDiv = $(replyClickedDiv).siblings(".replies-count").find(".count");
+			var repliesCountLabelDiv = $(replyClickedDiv).siblings(".replies-count").find(".label");
+
+			var repliesCount = parseInt($(repliesCountDiv).html());
+			var newRepliesCountLabel = "";
+
+			repliesCount++;
+			if(repliesCount == 1)
+				newRepliesCountLabel = "Reply"
+			else
+				newRepliesCountLabel = "Replies";
+
+			$(repliesCountDiv).html(repliesCount);
+			$(repliesCountLabelDiv).html(newRepliesCountLabel);
+
+			form_tools.message_response_form.hide();
+
+			if($(replyClickedDiv).siblings(".toogle-replies").attr("data-action") == "show")
+			{
+				html_tools.replies_list.message_id = this.data.originalMessageId;
+				html_tools.replies_list.html_object = $(replyClickedDiv).siblings(".toogle-replies");
+
+				if(jQuery.inArray(parseInt(this.data.originalMessageId), html_tools.replies_list.already_loaded_replies_ids) == -1)
+					html_tools.replies_list.already_loaded_replies_ids.push(parseInt(this.data.originalMessageId));
+
+				html_tools.replies_list.show();
+			}
 		}
 	},
 	
@@ -86,6 +127,7 @@ ajax = {
 
 			case "message_response_form":
 				$("#message-response-form-loading").css("display", "block");
+				document.getElementById("message-response-form-submit").disabled = true;
 			break;
 		}
 	},
@@ -104,6 +146,7 @@ ajax = {
 
 			case "message_response_form":
 				$("#message-response-form-loading").css("display", "none");
+				document.getElementById("message-response-form-submit").disabled = false;
 			break;
 		}
 	},

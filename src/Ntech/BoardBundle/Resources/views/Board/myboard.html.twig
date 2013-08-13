@@ -47,7 +47,7 @@
                                 {% endif %}
                             {% elseif message.replyToMessage %}
                                 {{ message.replyToMessage.user.username }} wrote: {{ message.replyToMessage.text }}
-                                <br>{{ message.replyToMessage.text }}
+                                <br>{{ message.user.username }} replied: {{ message.text }}
                             {% else %}
                                 {{ message.user.username }} wrote: {{ message.text }}
                             {% endif %}

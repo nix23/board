@@ -50,6 +50,8 @@ class Message
      */
     private $replyToMessage;
 
+	 private $repliesCount = 0;
+
     /**
      * Constructor
      */
@@ -59,9 +61,36 @@ class Message
         $this->replies = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function setRepliesCount($repliesCount)
+	 {
+		 $this->repliesCount = $repliesCount;
+	 }
+
+	 public function getRepliesCount()
+	 {
+		 return $this->repliesCount;
+	 }
+
 	 public function getTimeAgo()
 	 {
-		 return DatetimeUtils::get_time_ago($this->addedAt->format("Y-m-d H:m:s"));
+		 return DatetimeUtils::get_time_ago($this->addedAt->format("Y-m-d H:i:s"));
+	 }
+
+	 public function getTimeAgoLabel()
+	 {
+		 $timeAgo = DatetimeUtils::get_time_ago($this->addedAt->format("Y-m-d H:i:s"));
+		 $timeAgoParts = explode(" ", $timeAgo);
+
+		 return $timeAgoParts[0];
+	 }
+
+	 public function getTimeAgoSublabel()
+	 {
+		 $timeAgo = DatetimeUtils::get_time_ago($this->addedAt->format("Y-m-d H:i:s"));
+		 $timeAgoParts = explode(" ", $timeAgo);
+
+		 array_shift($timeAgoParts);
+		 return implode(" ", $timeAgoParts);
 	 }
 
     /**

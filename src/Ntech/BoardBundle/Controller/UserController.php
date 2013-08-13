@@ -25,7 +25,7 @@ class UserController extends Controller
 			return $ajaxResponse->getResponse();
 		}
 
-		$userRepository->findIfEveryuserIsFollowedByLoggedUser(
+		$userRepository->findIfEveryUserIsFollowedByLoggedUser(
 			array($changeFollowedByMeStatusUser), $loggedUser
 		);
 

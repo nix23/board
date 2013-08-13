@@ -1,0 +1,40 @@
+<div class="replies">
+    {% for reply in replies %}
+        <div class="reply">
+            <div class="left">
+                {% if reply.user.avatar %}
+                    <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ reply.user.avatar) }}"
+                         width="80" height="80" />
+                {% else %}
+                    <div class="no-avatar">No avatar</div>
+                {% endif %}
+            </div>
+
+            <div class="center">
+                <div class="top">
+                    {{ reply.user.username }} replied:
+                </div>
+
+                <div class="bottom">
+                    {{ reply.text }}
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="label">
+                    {{ reply.timeAgoLabel }}
+                </div>
+
+                <div class="sublabel">
+                    {{ reply.timeAgoSublabel }}
+                </div>
+            </div>
+        </div>
+
+        <div class="reply-separator">
+        </div>
+    {% endfor %}
+
+    <div class="reply-bottom-separator">
+    </div>
+</div>

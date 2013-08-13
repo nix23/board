@@ -161,6 +161,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'repost_message')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MessageController::repostMessageAction',  '_format' => 'json',));
         }
 
+        // load_replies
+        if (0 === strpos($pathinfo, '/load_replies') && preg_match('#^/load_replies\\-(?P<messageId>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'load_replies')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MessageController::loadRepliesAction',  '_format' => 'json',));
+        }
+
+        // reply_to_message
+        if (0 === strpos($pathinfo, '/reply_to_message') && preg_match('#^/reply_to_message\\-(?P<originalMessageId>\\d+)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'reply_to_message')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MessageController::replyToMessageAction',  '_format' => 'json',));
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
                 // login

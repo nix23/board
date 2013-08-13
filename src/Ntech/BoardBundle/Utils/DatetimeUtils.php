@@ -32,7 +32,8 @@
 		
 		public static function get_time_ago($source_datetime)
 		{
-			$current_datetime = strftime("%Y-%m-%d %H:%M:%S", time());
+			$current_datetime = new \Datetime();
+			$current_datetime = $current_datetime->format("Y-m-d H:i:s");//strftime("%Y-%m-%d %H:%M:%S", time());
 			$seconds_elapsed  = self::get_seconds_elapsed($current_datetime,
 																		 $source_datetime);
 			
@@ -96,7 +97,8 @@
 		public static function is_datetime_older_than($source_datetime = false,
 																	 $days            = 1)
 		{
-			$current_datetime = strftime("%Y-%m-%d %H:%M:%S", time());
+			$current_datetime = new \Datetime();
+			$current_datetime = $current_datetime->format("Y-m-d H:i:s");//strftime("%Y-%m-%d %H:%M:%S", time());
 			$seconds_elapsed  = self::get_seconds_elapsed($current_datetime,
 																		 $source_datetime);
 

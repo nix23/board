@@ -42,10 +42,34 @@ class Message extends \Ntech\BoardBundle\Entity\Message implements \Doctrine\ORM
     }
 
     
+    public function setRepliesCount($repliesCount)
+    {
+        $this->__load();
+        return parent::setRepliesCount($repliesCount);
+    }
+
+    public function getRepliesCount()
+    {
+        $this->__load();
+        return parent::getRepliesCount();
+    }
+
     public function getTimeAgo()
     {
         $this->__load();
         return parent::getTimeAgo();
+    }
+
+    public function getTimeAgoLabel()
+    {
+        $this->__load();
+        return parent::getTimeAgoLabel();
+    }
+
+    public function getTimeAgoSublabel()
+    {
+        $this->__load();
+        return parent::getTimeAgoSublabel();
     }
 
     public function getId()

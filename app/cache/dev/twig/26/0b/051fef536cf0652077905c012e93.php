@@ -35,12 +35,12 @@ class __TwigTemplate_260b051fef536cf0652077905c012e93 extends Twig_Template
         ";
         // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 14
+        // line 15
         echo "
         ";
-        // line 15
+        // line 16
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 23
+        // line 25
         echo "    </head>
 
     <body>
@@ -108,7 +108,8 @@ class __TwigTemplate_260b051fef536cf0652077905c012e93 extends Twig_Template
 
                     <div class=\"footer\">
                         <div class=\"save\">
-                            <button type=\"button\" class=\"submit\">Add</button>
+                            <button type=\"button\" class=\"submit\"
+                                    id=\"message-response-form-submit\">Add</button>
                         </div>
 
                         <div class=\"loading\" id=\"message-response-form-loading\">
@@ -120,37 +121,37 @@ class __TwigTemplate_260b051fef536cf0652077905c012e93 extends Twig_Template
 
             <div id=\"header\">
                 ";
-        // line 101
+        // line 104
         if ($this->getAttribute($this->getContext($context, "app"), "user")) {
-            // line 102
+            // line 105
             echo "                    ";
             $this->env->loadTemplate("NtechBoardBundle:Header:authorized.html.twig")->display($context);
-            // line 103
+            // line 106
             echo "                ";
         } else {
-            // line 104
+            // line 107
             echo "                    ";
             $this->env->loadTemplate("NtechBoardBundle:Header:unauthorized.html.twig")->display($context);
-            // line 105
+            // line 108
             echo "                ";
         }
-        // line 106
+        // line 109
         echo "            </div>
 
             <div id=\"content\">
                 <div id=\"page-header\">
                     <h1>
                         ";
-        // line 111
+        // line 114
         $this->displayBlock('header', $context, $blocks);
-        // line 113
+        // line 116
         echo "                    </h1>
                 </div>
 
                 ";
-        // line 116
-        $this->displayBlock('content', $context, $blocks);
         // line 119
+        $this->displayBlock('content', $context, $blocks);
+        // line 122
         echo "            </div>
 
         </div>
@@ -173,50 +174,58 @@ class __TwigTemplate_260b051fef536cf0652077905c012e93 extends Twig_Template
         echo "            <link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/css/main.css"), "html", null, true);
         echo "\" type=\"text/css\" media=\"all\">
+            <link rel=\"stylesheet\" href=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/css/shared/replies.css"), "html", null, true);
+        echo "\" type=\"text/css\" media=\"all\">
         ";
     }
 
-    // line 15
+    // line 16
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 16
+        // line 17
         echo "            <script src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/js/jquery.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 17
+        // line 18
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/js/overlay.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 18
+        // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/js/modal_loading.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 19
+        // line 20
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/js/ajax.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 20
+        // line 21
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/js/form_tools.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 21
+        // line 22
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/js/html_tools.js"), "html", null, true);
+        echo "\"></script>
+            <script src=\"";
+        // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ntechboard/js/initialize.js"), "html", null, true);
         echo "\"></script>
         ";
     }
 
-    // line 111
+    // line 114
     public function block_header($context, array $blocks = array())
     {
-        // line 112
+        // line 115
         echo "                        ";
     }
 
-    // line 116
+    // line 119
     public function block_content($context, array $blocks = array())
     {
-        // line 117
+        // line 120
         echo "                    Main page
                 ";
     }
@@ -233,6 +242,6 @@ class __TwigTemplate_260b051fef536cf0652077905c012e93 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  220 => 117,  217 => 116,  213 => 112,  210 => 111,  204 => 21,  200 => 20,  196 => 19,  192 => 18,  188 => 17,  183 => 16,  180 => 15,  173 => 12,  165 => 6,  162 => 5,  154 => 119,  147 => 113,  145 => 111,  138 => 106,  132 => 104,  129 => 103,  126 => 102,  124 => 101,  42 => 15,  39 => 14,  37 => 11,  32 => 8,  24 => 1,  426 => 194,  419 => 192,  411 => 187,  404 => 184,  397 => 180,  393 => 178,  391 => 177,  388 => 176,  384 => 175,  377 => 170,  366 => 164,  360 => 160,  352 => 154,  349 => 153,  347 => 152,  343 => 151,  339 => 150,  335 => 149,  330 => 146,  327 => 145,  321 => 141,  317 => 139,  313 => 137,  309 => 135,  307 => 134,  303 => 133,  297 => 131,  294 => 130,  292 => 129,  281 => 121,  275 => 117,  267 => 115,  264 => 114,  256 => 112,  254 => 111,  247 => 110,  245 => 109,  240 => 106,  234 => 104,  226 => 102,  224 => 101,  218 => 97,  214 => 95,  207 => 92,  205 => 91,  201 => 89,  197 => 88,  191 => 84,  185 => 83,  177 => 78,  170 => 11,  163 => 71,  159 => 69,  156 => 68,  152 => 116,  142 => 59,  135 => 105,  127 => 52,  120 => 49,  113 => 45,  109 => 43,  107 => 42,  104 => 41,  100 => 40,  92 => 34,  83 => 31,  80 => 30,  76 => 29,  60 => 16,  55 => 13,  52 => 12,  47 => 9,  44 => 23,  38 => 5,  33 => 4,  30 => 5,);
+        return array (  229 => 120,  226 => 119,  222 => 115,  219 => 114,  213 => 23,  209 => 22,  205 => 21,  201 => 20,  197 => 19,  193 => 18,  188 => 17,  185 => 16,  179 => 13,  174 => 12,  171 => 11,  166 => 6,  163 => 5,  155 => 122,  153 => 119,  148 => 116,  146 => 114,  139 => 109,  136 => 108,  133 => 107,  130 => 106,  127 => 105,  125 => 104,  44 => 25,  42 => 16,  39 => 15,  37 => 11,  32 => 8,  30 => 5,  24 => 1,);
     }
 }

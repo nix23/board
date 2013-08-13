@@ -276,10 +276,19 @@ class __TwigTemplate_14ff7cb21d7ff19a2c04521a5b20b78a extends Twig_Template
                     </div>
 
                     <div class=\"right\">
-                        ";
-            // line 121
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "message"), "timeAgo"), "html", null, true);
+                        <div class=\"label\">
+                            ";
+            // line 122
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "message"), "timeAgoLabel"), "html", null, true);
             echo "
+                        </div>
+
+                        <div class=\"sublabel\">
+                            ";
+            // line 126
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "message"), "timeAgoSublabel"), "html", null, true);
+            echo "
+                        </div>
                     </div>
 
                     <div class=\"separator\">
@@ -288,67 +297,67 @@ class __TwigTemplate_14ff7cb21d7ff19a2c04521a5b20b78a extends Twig_Template
                     <div class=\"footer\">
                         <div class=\"follow-status\">
                             ";
-            // line 129
+            // line 135
             if ((!$this->getAttribute($this->getAttribute($this->getContext($context, "message"), "user"), "isCurrentLoggedUser"))) {
-                // line 130
+                // line 136
                 echo "                                ";
                 if ($this->getAttribute($this->getContext($context, "app"), "user")) {
-                    // line 131
+                    // line 137
                     echo "                                    <span onclick=\"ajax.process('";
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("change_followed_by_me_status", array("userId" => $this->getAttribute($this->getAttribute($this->getContext($context, "message"), "user"), "id"))), "html", null, true);
                     echo "',
                                                                 false,
                                                                 'modal_no_confirmation')\" class=\"update-follow-status-";
-                    // line 133
+                    // line 139
                     echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "message"), "user"), "id"), "html", null, true);
                     echo "\">
                                         ";
-                    // line 134
+                    // line 140
                     if ($this->getAttribute($this->getAttribute($this->getContext($context, "message"), "user"), "isFollowedByLoggedUser")) {
-                        // line 135
+                        // line 141
                         echo "                                            Unfollow
                                         ";
                     } else {
-                        // line 137
+                        // line 143
                         echo "                                            Follow
                                         ";
                     }
-                    // line 139
+                    // line 145
                     echo "                                    </span>
                                 ";
                 } else {
-                    // line 141
+                    // line 147
                     echo "                                    <span onclick=\"alert('Please login to follow users')\">
                                         Follow
                                     </span>
                                 ";
                 }
-                // line 145
+                // line 151
                 echo "                            ";
             }
-            // line 146
+            // line 152
             echo "                        </div>
 
                         <div class=\"repost\"
                              data-original-message-text=\"";
-            // line 149
+            // line 155
             echo twig_escape_filter($this->env, (($this->getAttribute($this->getContext($context, "message"), "originalMessage")) ? ($this->getAttribute($this->getAttribute($this->getContext($context, "message"), "originalMessage"), "text")) : ($this->getAttribute($this->getContext($context, "message"), "text"))), "html", null, true);
             echo "\"
                              data-original-message-username=\"";
-            // line 150
+            // line 156
             echo twig_escape_filter($this->env, (($this->getAttribute($this->getContext($context, "message"), "originalMessage")) ? ($this->getAttribute($this->getAttribute($this->getAttribute($this->getContext($context, "message"), "originalMessage"), "user"), "username")) : ($this->getAttribute($this->getAttribute($this->getContext($context, "message"), "user"), "username"))), "html", null, true);
             echo "\"
                              data-repost-url=\"";
-            // line 151
+            // line 157
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("repost_message", array("originalMessageId" => (($this->getAttribute($this->getContext($context, "message"), "originalMessage")) ? ($this->getAttribute($this->getAttribute($this->getContext($context, "message"), "originalMessage"), "id")) : ($this->getAttribute($this->getContext($context, "message"), "id"))))), "html", null, true);
             echo "\">
                             ";
-            // line 152
+            // line 158
             if ($this->getAttribute($this->getContext($context, "app"), "user")) {
-                // line 153
+                // line 159
                 echo "                                <span onclick=\"ajax.process('";
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("check_if_message_already_reposted", array("originalMessageId" => (($this->getAttribute($this->getContext($context, "message"), "originalMessage")) ? ($this->getAttribute($this->getAttribute($this->getContext($context, "message"), "originalMessage"), "id")) : ($this->getAttribute($this->getContext($context, "message"), "id"))))), "html", null, true);
-                // line 154
+                // line 160
                 echo "',
                                                             this,
                                                             'modal_no_confirmation')\">
@@ -356,16 +365,85 @@ class __TwigTemplate_14ff7cb21d7ff19a2c04521a5b20b78a extends Twig_Template
                                 </span>
                             ";
             } else {
-                // line 160
+                // line 166
                 echo "                                <span onclick=\"alert('Please login to repost messages')\">
                                     Repost
                                 </span>
                             ";
             }
-            // line 164
+            // line 170
+            echo "                        </div>
+
+                        <div class=\"replies-count\">
+                            <span class=\"highlight count\">
+                                ";
+            // line 174
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "message"), "repliesCount"), "html", null, true);
+            echo "
+                            </span>
+                            <span class=\"label\">
+                                ";
+            // line 177
+            if (($this->getAttribute($this->getContext($context, "message"), "repliesCount") == 1)) {
+                // line 178
+                echo "                                    Reply
+                                ";
+            } else {
+                // line 180
+                echo "                                    Replies
+                                ";
+            }
+            // line 182
+            echo "                            </span>
+                        </div>
+                        <div class=\"toogle-replies\"
+                             data-action=\"show\"
+                             data-load-replies-url=\"";
+            // line 186
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("load_replies", array("messageId" => $this->getAttribute($this->getContext($context, "message"), "id"))), "html", null, true);
+            echo "\"
+                             onclick=\"html_tools.replies_list.toogle(";
+            // line 187
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "message"), "id"), "html", null, true);
+            echo ", this)\">
+                            Show
+                        </div>
+                        <div class=\"add-reply\">
+                            ";
+            // line 191
+            if ($this->getAttribute($this->getContext($context, "app"), "user")) {
+                // line 192
+                echo "                                <span onclick=\"form_tools.message_response_form.load_reply_form('";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("reply_to_message", array("originalMessageId" => $this->getAttribute($this->getContext($context, "message"), "id"))), "html", null, true);
+                echo "',
+                                                                                                '";
+                // line 193
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "message"), "user"), "username"), "html", null, true);
+                echo "',
+                                                                                                '";
+                // line 194
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "message"), "text"), "html", null, true);
+                echo "',
+                                                                                                this)\">
+                                    Add reply
+                                </span>
+                            ";
+            } else {
+                // line 199
+                echo "                                <span onclick=\"alert('Please login to reply to messages.')\">
+                                    Add reply
+                                </span>
+                            ";
+            }
+            // line 203
             echo "                        </div>
                     </div>
                 </div>
+
+                <div class=\"replies-wrapper\" id=\"replies-to-message-";
+            // line 207
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "message"), "id"), "html", null, true);
+            echo "\" style=\"display: none\"></div>
 
                 <div class=\"separator\"></div>
             ";
@@ -373,41 +451,41 @@ class __TwigTemplate_14ff7cb21d7ff19a2c04521a5b20b78a extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 170
+        // line 211
         echo "        </div>
 
         <div class=\"controls\">
             <div class=\"pagination\">
                 <div class=\"wrapper\">
                     ";
-        // line 175
+        // line 216
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "pages"));
         foreach ($context['_seq'] as $context["_key"] => $context["page"]) {
-            // line 176
+            // line 217
             echo "
                         ";
-            // line 177
+            // line 218
             if (($this->getContext($context, "page") == $this->getContext($context, "currentPage"))) {
-                // line 178
+                // line 219
                 echo "                            <div class=\"page selected\">
                                 <span class=\"number\">
                                     ";
-                // line 180
+                // line 221
                 echo twig_escape_filter($this->env, $this->getContext($context, "page"), "html", null, true);
                 echo "
                                 </span>
                             </div>
                         ";
             } else {
-                // line 184
+                // line 225
                 echo "                            <a href=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("main_with_params", array("days" => $this->getContext($context, "daysCountCurrentValue"), "page" => $this->getContext($context, "page"))), "html", null, true);
                 echo "\">
                                 <div class=\"page active\">
                                     <span class=\"number\">
                                         ";
-                // line 187
+                // line 228
                 echo twig_escape_filter($this->env, $this->getContext($context, "page"), "html", null, true);
                 echo "
                                     </span>
@@ -415,14 +493,14 @@ class __TwigTemplate_14ff7cb21d7ff19a2c04521a5b20b78a extends Twig_Template
                             </a>
                         ";
             }
-            // line 192
+            // line 233
             echo "
                     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['page'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 194
+        // line 235
         echo "                </div>
             </div>
         </div>
@@ -443,6 +521,6 @@ class __TwigTemplate_14ff7cb21d7ff19a2c04521a5b20b78a extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  426 => 194,  419 => 192,  411 => 187,  404 => 184,  397 => 180,  393 => 178,  391 => 177,  388 => 176,  384 => 175,  377 => 170,  366 => 164,  360 => 160,  352 => 154,  349 => 153,  347 => 152,  343 => 151,  339 => 150,  335 => 149,  330 => 146,  327 => 145,  321 => 141,  317 => 139,  313 => 137,  309 => 135,  307 => 134,  303 => 133,  297 => 131,  294 => 130,  292 => 129,  281 => 121,  275 => 117,  267 => 115,  264 => 114,  256 => 112,  254 => 111,  247 => 110,  245 => 109,  240 => 106,  234 => 104,  226 => 102,  224 => 101,  218 => 97,  214 => 95,  207 => 92,  205 => 91,  201 => 89,  197 => 88,  191 => 84,  185 => 83,  177 => 78,  170 => 75,  163 => 71,  159 => 69,  156 => 68,  152 => 67,  142 => 59,  135 => 57,  127 => 52,  120 => 49,  113 => 45,  109 => 43,  107 => 42,  104 => 41,  100 => 40,  92 => 34,  83 => 31,  80 => 30,  76 => 29,  60 => 16,  55 => 13,  52 => 12,  47 => 9,  44 => 8,  38 => 5,  33 => 4,  30 => 3,);
+        return array (  504 => 235,  497 => 233,  489 => 228,  482 => 225,  475 => 221,  471 => 219,  469 => 218,  466 => 217,  462 => 216,  455 => 211,  445 => 207,  439 => 203,  433 => 199,  425 => 194,  421 => 193,  416 => 192,  414 => 191,  407 => 187,  403 => 186,  397 => 182,  393 => 180,  389 => 178,  387 => 177,  381 => 174,  375 => 170,  369 => 166,  361 => 160,  358 => 159,  356 => 158,  352 => 157,  348 => 156,  344 => 155,  339 => 152,  336 => 151,  330 => 147,  326 => 145,  322 => 143,  318 => 141,  316 => 140,  312 => 139,  306 => 137,  303 => 136,  301 => 135,  289 => 126,  282 => 122,  275 => 117,  267 => 115,  264 => 114,  256 => 112,  254 => 111,  247 => 110,  245 => 109,  240 => 106,  234 => 104,  226 => 102,  224 => 101,  218 => 97,  214 => 95,  207 => 92,  205 => 91,  201 => 89,  197 => 88,  191 => 84,  185 => 83,  177 => 78,  170 => 75,  163 => 71,  159 => 69,  156 => 68,  152 => 67,  142 => 59,  135 => 57,  127 => 52,  120 => 49,  113 => 45,  109 => 43,  107 => 42,  104 => 41,  100 => 40,  92 => 34,  83 => 31,  80 => 30,  76 => 29,  60 => 16,  55 => 13,  52 => 12,  47 => 9,  44 => 8,  38 => 5,  33 => 4,  30 => 3,);
     }
 }
