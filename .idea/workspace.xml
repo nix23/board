@@ -36,7 +36,7 @@
     <file path="/BoardController.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376477631652" ignored="false" />
     <file path="/login.css" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375823276830" ignored="false" />
     <file path="/main.html.twig" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376508680585" ignored="false" />
-    <file path="/MessageRepository.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376495196606" ignored="false" />
+    <file path="/MessageRepository.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376515721313" ignored="false" />
     <file path="/DateUtils.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1375895286901" ignored="false" />
     <file path="/a.dummy" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376474705258" ignored="false" />
     <file path="/DatetimeUtils.php" changelist="0e660e6f-8904-40cf-8947-43fe822fee68" time="1376419913594" ignored="false" />
@@ -95,10 +95,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="BoardController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/BoardController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding>
+                <element signature="e#47#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MessageRepository.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/MessageRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="82" column="60" selection-start="2577" selection-end="2577" vertical-scroll-proportion="1.1481913">
               <folding />
             </state>
           </provider>
@@ -123,7 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/web/bundles/ntechboard/js/initialize.js" />
         <option value="$PROJECT_DIR$/web/bundles/ntechboard/js/form_tools.js" />
         <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Main/main.html.twig" />
         <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Shared/replies.html.twig" />
@@ -139,6 +149,7 @@
         <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Resources/views/Board/myfollowers.html.twig" />
         <option value="$PROJECT_DIR$/web/bundles/ntechboard/css/header/unauthorized.css" />
         <option value="$PROJECT_DIR$/web/bundles/ntechboard/css/header/authorized.css" />
+        <option value="$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/MessageRepository.php" />
       </list>
     </option>
   </component>
@@ -1216,15 +1227,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/BoardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#47#104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/AuthorizationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1283,9 +1285,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/MessageRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Controller/BoardController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#47#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ntech/BoardBundle/Repository/MessageRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="60" selection-start="2577" selection-end="2577" vertical-scroll-proportion="1.1481913">
           <folding />
         </state>
       </provider>

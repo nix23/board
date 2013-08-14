@@ -15,7 +15,8 @@ class MessageRepository extends EntityRepository
 	public function getAllMessagesAndReposts($days = 1, $limit = 50, $offset = 0)
 	{
 		$query = $this->getEntityManager()->createQuery(
-			'SELECT m, u FROM NtechBoardBundle:Message m JOIN m.user u WHERE m.addedAt > :date
+			'SELECT m, u, om, om_u FROM NtechBoardBundle:Message m JOIN m.user u
+			 LEFT JOIN m.originalMessage om LEFT JOIN om.user om_u WHERE m.addedAt > :date
 			AND m.replyToMessage is NULL ORDER BY m.addedAt DESC'
 		)->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)))
 		->setMaxResults($limit)
@@ -74,9 +75,13 @@ class MessageRepository extends EntityRepository
 		$userIdsString = implode(", ", $userIds);
 
 		$qb = $this->_em->createQueryBuilder()
-								->select("m")
+								->select(array("m", "u", "om", "rm", "om_u", "rm_u"))
 								->from("NtechBoardBundle:Message", "m")
 								->join("m.user", "u")
+								->leftJoin("m.originalMessage", "om")
+								->leftJoin("om.user", "om_u")
+								->leftJoin("m.replyToMessage", "rm")
+								->leftJoin("rm.user", "rm_u")
 								->where("u.id IN ($userIdsString)")
 								->orderBy("m.addedAt", "DESC");
 
