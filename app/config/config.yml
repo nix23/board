@@ -67,3 +67,4 @@ swiftmailer:
 
 parameters:
   posts_count_on_main: 20
+  posts_count_on_board: 20

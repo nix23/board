@@ -16,6 +16,65 @@
 {% block content %}
     <div id="myboard">
 
+       <div class="controls">
+            <div class="pagination">
+                <div class="wrapper">
+                    {% for page in pages %}
+
+                        {% if page == currentPage %}
+                            <div class="page selected">
+                                <span class="number">
+                                    {{ page }}
+                                </span>
+                            </div>
+                        {% else %}
+                            <a href="{{ path('myboard_with_params', { 'days': daysCountCurrentValue, 'page': page }) }}">
+                                <div class="page active">
+                                    <span class="number">
+                                        {{ page }}
+                                    </span>
+                                </div>
+                            </a>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="sorting">
+                <div class="heading">
+                    Last:
+                </div>
+
+                {% for daysCountOption in daysCountOptions %}
+                    {% if daysCountOption.selected %}
+                        <div class="wrapper">
+                            <div class="item selected">
+                                {{ daysCountOption.label }}
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href="{{ path('myboard_with_params', { 'days': daysCountOption.value, 'page': currentPage }) }}">
+                            <div class="wrapper">
+                                <div class="item active">
+                                    {{ daysCountOption.label }}
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="add-button">
+                <div class="wrapper"
+                     onclick="form_tools.new_message_form.show()">
+                    <div class="name">
+                        <span class="add-char">+</span>New message
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="posts">
             {% for message in messages %}
                 <div class="post">
@@ -55,12 +114,129 @@
                     </div>
 
                     <div class="right">
-                        {{ message.timeAgo }}
+                        <div class="label">
+                            {{ message.timeAgoLabel }}
+                        </div>
+
+                        <div class="sublabel">
+                            {{ message.timeAgoSublabel }}
+                        </div>
                     </div>
+
+                    {% if (not message.replyToMessage)
+                             or
+                          (message.replyToMessage and (not message.user.isCurrentLoggedUser))
+                    %}
+                        <div class="separator">
+                        </div>
+
+                        <div class="footer">
+                            <div class="follow-status">
+                                {% if not message.user.isCurrentLoggedUser %}
+                                    <span onclick="ajax.process('{{ path('change_followed_by_me_status', { 'userId' : message.user.id }) }}',
+                                                                false,
+                                                                'modal_no_confirmation')" class="update-follow-status-{{ message.user.id }}">
+                                        {% if message.user.isFollowedByLoggedUser %}
+                                            Unfollow
+                                        {% else %}
+                                            Follow
+                                        {% endif %}
+                                    </span>
+                                {% endif %}
+                            </div>
+
+                            {% if not message.user.isCurrentLoggedUser and (not message.replyToMessage) %}
+                                <div class="repost"
+                                     data-original-message-text="{{ message.originalMessage ? message.originalMessage.text : message.text }}"
+                                     data-original-message-username="{{ message.originalMessage ? message.originalMessage.user.username : message.user.username }}"
+                                     data-repost-url="{{ path('repost_message', { 'originalMessageId': message.originalMessage ? message.originalMessage.id : message.id,
+                                                                                  'redirectToRouteAfterRepost': 'myboard' }) }}">
+                                    {% if app.user %}
+                                        <span onclick="ajax.process('{{ path('check_if_message_already_reposted',
+                                              { 'originalMessageId' : message.originalMessage ? message.originalMessage.id : message.id }) }}',
+                                                                    this,
+                                                                    'modal_no_confirmation')">
+                                            Repost
+                                        </span>
+                                    {% else %}
+                                        <span onclick="alert('Please login to repost messages')">
+                                            Repost
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="repost">
+                                </div>
+                            {% endif %}
+
+                            {% if not message.replyToMessage %}
+                                <div class="replies-count">
+                                    <span class="highlight count">
+                                        {{ message.repliesCount }}
+                                    </span>
+                                    <span class="label">
+                                        {% if message.repliesCount == 1 %}
+                                            Reply
+                                        {% else %}
+                                            Replies
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                <div class="toogle-replies"
+                                     data-action="show"
+                                     data-load-replies-url="{{ path('load_replies', { 'messageId': message.id }) }}"
+                                     onclick="html_tools.replies_list.toogle({{ message.id }}, this)">
+                                    Show
+                                </div>
+                                <div class="add-reply">
+                                    {% if app.user %}
+                                        <span onclick="form_tools.message_response_form.load_reply_form('{{ path('reply_to_message', {'originalMessageId': message.id }) }}',
+                                                                                                        '{{ message.user.username }}',
+                                                                                                        '{{ message.text }}',
+                                                                                                        this)">
+                                            Add reply
+                                        </span>
+                                    {% else %}
+                                        <span onclick="alert('Please login to reply to messages.')">
+                                            Add reply
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
+
+                <div class="replies-wrapper" id="replies-to-message-{{ message.id }}" style="display: none"></div>
 
                 <div class="separator"></div>
             {% endfor %}
+        </div>
+
+       <div class="controls">
+            <div class="pagination">
+                <div class="wrapper">
+                    {% for page in pages %}
+
+                        {% if page == currentPage %}
+                            <div class="page selected">
+                                <span class="number">
+                                    {{ page }}
+                                </span>
+                            </div>
+                        {% else %}
+                            <a href="{{ path('myboard_with_params', { 'days': daysCountCurrentValue, 'page': page }) }}">
+                                <div class="page active">
+                                    <span class="number">
+                                        {{ page }}
+                                    </span>
+                                </div>
+                            </a>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
         </div>
 
     </div>

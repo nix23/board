@@ -119,39 +119,94 @@ class __TwigTemplate_260b051fef536cf0652077905c012e93 extends Twig_Template
                 </form>
             </div>
 
+            <div id=\"new-message-form\">
+                <form name=\"new-message-form\">
+
+                    <div class=\"heading\">
+                        <div class=\"legend\">
+                            <div class=\"label\">
+                                Add new message
+                            </div>
+                        </div>
+
+                        <div class=\"close\">
+                            <span class=\"button\"
+                                  onclick=\"form_tools.new_message_form.hide()\">
+                                Close
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class=\"element-row\">
+                        <div class=\"left\">
+                            <div class=\"legend\">
+                                Message text<span class=\"required\">*</span>
+                            </div>
+
+                            <div class=\"sublabel\">
+                                Min length - 5 chars
+                            </div>
+                        </div>
+
+                        <div class=\"right\">
+                            <textarea name=\"message[text]\" class=\"textarea\"
+                                      id=\"new-message-form-text\"></textarea>
+                        </div>
+                    </div>
+
+                    <div class=\"footer\">
+                        <div class=\"save\">
+                            <button type=\"button\" class=\"submit\"
+                                    id=\"new-message-form-submit\"
+                                    onclick='ajax.process_form(\"new-message-form\",
+                                                               \"";
+        // line 143
+        echo $this->env->getExtension('routing')->getPath("add_new_message");
+        echo "\",
+                                                               false,
+                                                               \"new_message_form\")'>Add</button>
+                        </div>
+
+                        <div class=\"loading\" id=\"new-message-form-loading\">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
             <div id=\"header\">
                 ";
-        // line 104
+        // line 156
         if ($this->getAttribute($this->getContext($context, "app"), "user")) {
-            // line 105
+            // line 157
             echo "                    ";
             $this->env->loadTemplate("NtechBoardBundle:Header:authorized.html.twig")->display($context);
-            // line 106
+            // line 158
             echo "                ";
         } else {
-            // line 107
+            // line 159
             echo "                    ";
             $this->env->loadTemplate("NtechBoardBundle:Header:unauthorized.html.twig")->display($context);
-            // line 108
+            // line 160
             echo "                ";
         }
-        // line 109
+        // line 161
         echo "            </div>
 
             <div id=\"content\">
                 <div id=\"page-header\">
                     <h1>
                         ";
-        // line 114
+        // line 166
         $this->displayBlock('header', $context, $blocks);
-        // line 116
+        // line 168
         echo "                    </h1>
                 </div>
 
                 ";
-        // line 119
+        // line 171
         $this->displayBlock('content', $context, $blocks);
-        // line 122
+        // line 174
         echo "            </div>
 
         </div>
@@ -215,17 +270,17 @@ class __TwigTemplate_260b051fef536cf0652077905c012e93 extends Twig_Template
         ";
     }
 
-    // line 114
+    // line 166
     public function block_header($context, array $blocks = array())
     {
-        // line 115
+        // line 167
         echo "                        ";
     }
 
-    // line 119
+    // line 171
     public function block_content($context, array $blocks = array())
     {
-        // line 120
+        // line 172
         echo "                    Main page
                 ";
     }
@@ -242,6 +297,6 @@ class __TwigTemplate_260b051fef536cf0652077905c012e93 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  229 => 120,  226 => 119,  222 => 115,  219 => 114,  213 => 23,  209 => 22,  205 => 21,  201 => 20,  197 => 19,  193 => 18,  188 => 17,  185 => 16,  179 => 13,  174 => 12,  171 => 11,  166 => 6,  163 => 5,  155 => 122,  153 => 119,  148 => 116,  146 => 114,  139 => 109,  136 => 108,  133 => 107,  130 => 106,  127 => 105,  125 => 104,  44 => 25,  42 => 16,  39 => 15,  37 => 11,  32 => 8,  30 => 5,  24 => 1,);
+        return array (  284 => 172,  281 => 171,  277 => 167,  274 => 166,  268 => 23,  264 => 22,  260 => 21,  256 => 20,  252 => 19,  248 => 18,  243 => 17,  240 => 16,  234 => 13,  229 => 12,  226 => 11,  221 => 6,  218 => 5,  210 => 174,  208 => 171,  203 => 168,  201 => 166,  194 => 161,  191 => 160,  188 => 159,  185 => 158,  182 => 157,  180 => 156,  164 => 143,  44 => 25,  42 => 16,  39 => 15,  37 => 11,  32 => 8,  30 => 5,  24 => 1,);
     }
 }

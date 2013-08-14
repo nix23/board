@@ -48,4 +48,9 @@ class UserController extends Controller
 
 		return $ajaxResponse->getResponse();
 	}
+
+	public function showProfileAction($username)
+	{
+		
+	}
 }

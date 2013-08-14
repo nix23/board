@@ -2,12 +2,131 @@
 	width: 960px;
 }
 
+#myboard .controls {
+	width: 960px; height: 60px;
+}
+
+/******************************************************************/
+/*                        Pagination                              */
+/******************************************************************/
+#myboard .controls .pagination {
+	position: relative; float: left; width: 300px; height: 60px;
+}
+
+#myboard .controls .pagination .wrapper {
+	position: absolute; width: 280px; height: 30px; top: 50%; margin-top: -15px;
+	left: 20px;
+}
+
+#myboard .controls .pagination .page {
+	float: left; margin-left: 5px; width: 30px; height: 30px;
+	border: 1px rgb(210,210,210) solid;
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	line-height: 30px; text-align: center;
+}
+
+#myboard .controls .pagination .selected {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#myboard .controls .pagination .active {
+	background: rgb(240,240,240); color: black;
+}
+
+#myboard .controls .pagination .active:hover {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#myboard .controls .pagination .number {
+	font-size: 16px; font-weight: bold;
+	letter-spacing: -2px; padding-right: 1px;
+}
+
+/******************************************************************/
+/*                        Sorting                                 */
+/******************************************************************/
+#myboard .controls .sorting {
+	float: left; width: 400px; height: 60px;
+}
+
+#myboard .controls .sorting .heading {
+	float: left; width: 80px; height: 60px; line-height: 60px; text-align: right;
+	font-size: 18px; font-weight: bold; letter-spacing: -1px;
+}
+
+#myboard .controls .sorting .wrapper {
+	position: relative; float: left; width: 100px; height: 60px;
+}
+
+#myboard .controls .sorting .item {
+	position: absolute; left: 50%; margin-left: -45px; top: 50%; margin-top: -12px;
+	width: 90px; height: 25px; line-height: 25px; text-align: center;
+	font-size: 16px; font-weight: bold; letter-spacing: -1px;
+	border: 1px rgb(210,210,210) solid; color: black;
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
+#myboard .controls .sorting .active {
+	background: rgb(240,240,240);
+}
+
+#myboard .controls .sorting .active:hover {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#myboard .controls .sorting .selected {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#myboard .controls .sorting a {
+	text-decoration: none;
+}
+
 #myboard .posts {
 	width: 960px; margin-top: 10px;
 }
 
+/******************************************************************/
+/*                        Add button                              */
+/******************************************************************/
+#myboard .controls .add-button {
+	position: relative; float: left; width: 260px; height: 60px;
+}
+
+#myboard .controls .add-button .wrapper {
+	position: absolute; width: 180px; height: 30px; top: 50%; margin-top: -15px;
+	left: 50%; margin-left: -90px; color: black;
+	background: rgb(240,240,240); border: 1px rgb(210,210,210) solid;
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
+#myboard .controls .add-button .wrapper:hover {
+	background: rgb(17,215,239); color: white; cursor: pointer;
+}
+
+#myboard .controls .add-button .name {
+	height: 30px; line-height: 30px; font-size: 16px; font-weight: bold;
+	letter-spacing: 0px;
+}
+
+#myboard .controls .add-button .add-char {
+	font-size: 16px;
+}
+
+#myboard .controls .add-button a {
+	text-decoration: none;
+}
+
+#myboard .posts {
+	width: 960px; margin-top: 10px;
+}
+
+/******************************************************************/
+/*                            Post                                */
+/******************************************************************/
+
 #myboard .posts .post {
-	width: 800px; margin-left: 80px; clear: both;
+	width: 900px; margin-left: 30px; clear: both;
 }
 
 #myboard .posts .post .left {
@@ -20,22 +139,79 @@
 }
 
 #myboard .posts .post .center {
-	float: left; width: 505px; margin-left: 15px;
+	float: left; width: 605px; margin-left: 15px;
 }
 
 #myboard .posts .post .center .top {
-	width: 505px; height: 40px; line-height: 40px;
+	width: 605px; height: 40px; line-height: 40px;
 	text-align: left; font-size: 26px; font-weight: bold;
 }
 
 #myboard .posts .post .center .bottom {
-	width: 505px; text-align: left;
+	width: 605px; text-align: left;
 }
 
 #myboard .posts .post .right {
 	float: left; width: 200px; height: 80px; line-height: 80px;
 }
 
+#myboard .posts .post .right .label {
+	width: 200px; height: 35px; line-height: 35px; color: rgb(17,215,239);
+	margin-top: 14px; font-weight: bold; font-size: 28px;
+}
+
+#myboard .posts .post .right .sublabel {
+	width: 200px; height: 20px; line-height: 20px;
+	font-weight: bold; font-size: 20px;
+}
+
+#myboard .posts .post .footer {
+	clear: both; width: 900px; height: 25px; line-height: 25px;
+	background: rgb(220,220,220); margin-top: 5px;
+}
+
+#myboard .posts .post .footer .follow-status {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 15px; font-weight: bold; font-size: 14px;
+}
+
+#myboard .posts .post .footer .follow-status:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#myboard .posts .post .footer .repost {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 250px; font-weight: bold; font-size: 14px;
+}
+
+#myboard .posts .post .footer .repost:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#myboard .posts .post .footer .replies-count {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 120px; font-weight: bold; font-size: 14px;
+}
+
+#myboard .posts .post .footer .toogle-replies {
+	float: left; width: 70px; height: 25px; line-height: 25px;
+	font-weight: bold; font-size: 14px;
+}
+
+#myboard .posts .post .footer .add-reply {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	font-weight: bold; font-size: 14px;
+}
+
+#myboard .posts .post .footer .toogle-replies:hover,
+#myboard .posts .post .footer .add-reply:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#myboard .posts .post .footer .highlight {
+	color: rgb(17,215,239);
+}
+
 #myboard .posts .separator {
-	width: 960px; height: 20px; clear: both;
+	width: 960px; height: 10px; clear: both;
 }

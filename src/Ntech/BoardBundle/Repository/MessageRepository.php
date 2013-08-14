@@ -34,7 +34,28 @@ class MessageRepository extends EntityRepository
 		return $query->getSingleScalarResult();
 	}
 
-	public function getAllMessagesByUserIds($userIds = array())
+	public function getMessagesTotalCountByUserIds($userIds, $days)
+	{
+		if(!is_array($userIds) || empty($userIds))
+			throw new \Exception("Wrong \$userIds passed to getAllMessagesByUserIds");
+
+		for($i = 0; $i < count($userIds); $i++)
+			$userIds[$i] = (int)$userIds[$i];
+
+		$userIdsString = implode(", ", $userIds);
+
+		$query = $this->getEntityManager()->createQuery(
+			"SELECT COUNT(m.id) FROM NtechBoardBundle:Message m JOIN m.user u
+			 WHERE m.addedAt > :date AND u.id IN ($userIdsString)"
+		)->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)));
+
+		return $query->getSingleScalarResult();
+	}
+
+	public function getAllMessagesByUserIds($userIds = array(),
+														 $days = 1,
+														 $limit = 50,
+														 $offset = 0)
 	{
 		if(!is_array($userIds) || empty($userIds))
 			throw new \Exception("Wrong \$userIds passed to getAllMessagesByUserIds");
@@ -46,8 +67,10 @@ class MessageRepository extends EntityRepository
 
 		$query = $this->getEntityManager()->createQuery(
 			"SELECT m FROM NtechBoardBundle:Message m JOIN m.user u
-			 WHERE u.id IN ($userIdsString) ORDER BY m.addedAt DESC"
-		);
+			 WHERE m.addedAt > :date AND u.id IN ($userIdsString) ORDER BY m.addedAt DESC"
+		)->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)))
+		->setMaxResults($limit)
+		->setFirstResult($offset);
 
 		return $query->getResult();
 	}

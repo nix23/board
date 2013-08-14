@@ -16,6 +16,11 @@ $(document).ready(function(){
 		{
 			form_tools.message_response_form.update_position();
 		}
+
+		if(form_tools.message_response_form.is_active)
+		{
+			form_tools.message_response_form.update_position();
+		}
 	});
 
 	// Window scroll logic
@@ -27,9 +32,14 @@ $(document).ready(function(){
 			modal_loading.update_position();
 		}
 
-		if(form_tools.message_response_form.is_active)
+		if(form_tools.new_message_form.is_active)
 		{
-			form_tools.message_response_form.update_position();
+			form_tools.new_message_form.update_position();
+		}
+
+		if(form_tools.new_message_form.is_active)
+		{
+			form_tools.new_message_form.update_position();
 		}
 	});
 });

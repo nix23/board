@@ -100,6 +100,58 @@
                 </form>
             </div>
 
+            <div id="new-message-form">
+                <form name="new-message-form">
+
+                    <div class="heading">
+                        <div class="legend">
+                            <div class="label">
+                                Add new message
+                            </div>
+                        </div>
+
+                        <div class="close">
+                            <span class="button"
+                                  onclick="form_tools.new_message_form.hide()">
+                                Close
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="element-row">
+                        <div class="left">
+                            <div class="legend">
+                                Message text<span class="required">*</span>
+                            </div>
+
+                            <div class="sublabel">
+                                Min length - 5 chars
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <textarea name="message[text]" class="textarea"
+                                      id="new-message-form-text"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="footer">
+                        <div class="save">
+                            <button type="button" class="submit"
+                                    id="new-message-form-submit"
+                                    onclick='ajax.process_form("new-message-form",
+                                                               "{{ path('add_new_message') }}",
+                                                               false,
+                                                               "new_message_form")'>Add</button>
+                        </div>
+
+                        <div class="loading" id="new-message-form-loading">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
             <div id="header">
                 {% if app.user %}
                     {% include 'NtechBoardBundle:Header:authorized.html.twig' %}

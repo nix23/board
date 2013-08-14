@@ -209,3 +209,93 @@ body {
 	float: left; width: 180px; height: 60px; display: none;
 	background: url(../img/loading_middle3.gif) no-repeat;
 }
+
+/****************************************************************************************/
+/*                                    New message                                       */
+/****************************************************************************************/
+#new-message-form {
+	position: absolute; left: 50%; width: 570px; height: 280px;
+	z-index: 7000; margin-left: -285px; display: none;
+	background: rgb(235,235,235);
+	border-radius: 15px; -moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+	border: 1px rgb(220,220,220) solid;
+}
+
+#new-message-form .heading {
+	width: 570px; height: 50px;
+	border-bottom: 1px rgb(215,215,215) solid;
+}
+
+#new-message-form .heading .legend {
+	float: left; width: 470px; height: 50px; text-align: left;
+}
+
+#new-message-form .heading .legend .label {
+	width: 430px; height: 50px; line-height: 50px; margin-left: 40px;
+	font-size: 32px; font-weight: bold; letter-spacing: -2px;
+}
+
+#new-message-form .heading .close {
+	float: left; width: 100px; height: 50px; line-height: 50px;
+}
+
+#new-message-form .heading .close .button {
+	font-size: 24px; font-weight: bold; letter-spacing: -1px;
+}
+
+#new-message-form .heading .close .button:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#new-message-form .element-row {
+	clear: both; width: 570px; height: 120px; margin-top: 20px;
+}
+
+#new-message-form .element-row .left {
+	float: left; width: 250px; height: 120px; text-align: right;
+}
+
+#new-message-form .element-row .left .legend {
+	font-size: 24px; font-weight: bold; color: rgb(60,60,60);
+	letter-spacing: -1px;
+}
+
+#new-message-form .element-row .left .sublabel {
+	font-size: 14px; color: rgb(120,120,120);
+}
+
+#new-message-form .element-row .left .legend .required {
+	font-size: 24px; color: rgb(17,215,239);
+}
+
+#new-message-form .element-row .right {
+	float: left; width: 320px; height: 120px; text-align: left;
+}
+
+#new-message-form .element-row .right .textarea {
+	width: 260px; height: 120px; font-family: Arial; font-size: 18px; resize: none;
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	margin-left: 10px;
+}
+
+#new-message-form .footer {
+	clear: both; width: 570px; height: 60px;
+}
+
+#new-message-form .footer .save {
+	float: left; text-align: right; width: 390px; height: 60px;
+}
+
+#new-message-form .footer .submit {
+	margin-top: 10px; margin-right: 5px; width: 190px; height: 40px; line-height: 1;
+	font-family: Arial; font-size: 22px; font-weight: bold; letter-spacing: -1px;
+}
+
+#new-message-form .footer .loading {
+	float: left; width: 180px; height: 60px; display: none;
+	background: url(../img/loading_middle3.gif) no-repeat;
+}

@@ -72,5 +72,40 @@ form_tools = {
 				submitButtonHtml
 			);
 		}
+	},
+
+	new_message_form: {
+		is_active: false,
+
+		show: function()
+		{
+			this.is_active = true;
+			this.update_position();
+
+			$("#new-message-form-text").val("");
+
+			// Setting overlay
+			overlay.hide_on_click = true;
+			overlay.before_hide   = "close_new_message_form";
+			overlay.show();
+
+			$("#new-message-form").css("display", "block");
+		},
+
+		hide: function()
+		{
+			overlay.hide();
+			$("#new-message-form").css("display", "none");
+			this.is_active = false;
+		},
+
+		update_position: function()
+		{
+			var form_height     = parseInt($("#new-message-form").css("height"));
+			var viewport_offset = ($(window).height() - form_height) / 2;
+			var scroll_offset   = $(window).scrollTop();
+
+			$("#new-message-form").css("top", (viewport_offset + scroll_offset) + "px");
+		}
 	}
 }

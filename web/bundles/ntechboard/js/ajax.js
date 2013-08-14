@@ -129,6 +129,11 @@ ajax = {
 				$("#message-response-form-loading").css("display", "block");
 				document.getElementById("message-response-form-submit").disabled = true;
 			break;
+
+			case "new_message_form":
+				$("#new-message-form-loading").css("display", "block");
+				document.getElementById("new-message-form-submit").disabled = true;
+			break;
 		}
 	},
 	
@@ -147,6 +152,11 @@ ajax = {
 			case "message_response_form":
 				$("#message-response-form-loading").css("display", "none");
 				document.getElementById("message-response-form-submit").disabled = false;
+			break;
+
+			case "new_message_form":
+				$("#new-message-form-loading").css("display", "none");
+				document.getElementById("new-message-form-submit").disabled = false;
 			break;
 		}
 	},

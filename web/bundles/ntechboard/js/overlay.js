@@ -22,6 +22,10 @@ overlay = {
 			case "close_message_response_form":
 				form_tools.message_response_form.hide();
 			break;
+
+			case "close_new_message_form":
+				form_tools.new_message_form.hide();
+			break;
 		}
 		
 		overlay.hide();

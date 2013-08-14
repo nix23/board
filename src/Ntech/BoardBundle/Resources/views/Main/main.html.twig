@@ -82,6 +82,24 @@
                     {% endif %}
                 {% endfor %}
             </div>
+
+            <div class="add-button">
+                {% if app.user %}
+                    <div class="wrapper"
+                         onclick="form_tools.new_message_form.show()">
+                        <div class="name">
+                            <span class="add-char">+</span>New message
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="wrapper"
+                         onclick="alert('Please login to post new messages.')">
+                        <div class="name">
+                            <span class="add-char">+</span>New message
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
         </div>
 
         <div class="posts">
@@ -151,23 +169,29 @@
                             {% endif %}
                         </div>
 
-                        <div class="repost"
-                             data-original-message-text="{{ message.originalMessage ? message.originalMessage.text : message.text }}"
-                             data-original-message-username="{{ message.originalMessage ? message.originalMessage.user.username : message.user.username }}"
-                             data-repost-url="{{ path('repost_message', { 'originalMessageId': message.originalMessage ? message.originalMessage.id : message.id }) }}">
-                            {% if app.user %}
-                                <span onclick="ajax.process('{{ path('check_if_message_already_reposted',
-                                      { 'originalMessageId' : message.originalMessage ? message.originalMessage.id : message.id }) }}',
-                                                            this,
-                                                            'modal_no_confirmation')">
-                                    Repost
-                                </span>
-                            {% else %}
-                                <span onclick="alert('Please login to repost messages')">
-                                    Repost
-                                </span>
-                            {% endif %}
-                        </div>
+                        {% if not message.user.isCurrentLoggedUser %}
+                            <div class="repost"
+                                 data-original-message-text="{{ message.originalMessage ? message.originalMessage.text : message.text }}"
+                                 data-original-message-username="{{ message.originalMessage ? message.originalMessage.user.username : message.user.username }}"
+                                 data-repost-url="{{ path('repost_message', { 'originalMessageId': message.originalMessage ? message.originalMessage.id : message.id,
+                                                                              'redirectToRouteAfterRepost': 'main' }) }}">
+                                {% if app.user %}
+                                    <span onclick="ajax.process('{{ path('check_if_message_already_reposted',
+                                          { 'originalMessageId' : message.originalMessage ? message.originalMessage.id : message.id }) }}',
+                                                                this,
+                                                                'modal_no_confirmation')">
+                                        Repost
+                                    </span>
+                                {% else %}
+                                    <span onclick="alert('Please login to repost messages')">
+                                        Repost
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <div class="repost">
+                            </div>
+                        {% endif %}
 
                         <div class="replies-count">
                             <span class="highlight count">

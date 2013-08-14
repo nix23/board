@@ -157,7 +157,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // repost_message
-        if (0 === strpos($pathinfo, '/repost_message') && preg_match('#^/repost_message\\-(?P<originalMessageId>\\d+)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/repost_message') && preg_match('#^/repost_message\\-(?P<originalMessageId>\\d+)\\-(?P<redirectToRouteAfterRepost>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'repost_message')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MessageController::repostMessageAction',  '_format' => 'json',));
         }
 
@@ -169,6 +169,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // reply_to_message
         if (0 === strpos($pathinfo, '/reply_to_message') && preg_match('#^/reply_to_message\\-(?P<originalMessageId>\\d+)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'reply_to_message')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MessageController::replyToMessageAction',  '_format' => 'json',));
+        }
+
+        // add_new_message
+        if ($pathinfo === '/add_new_message') {
+            return array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\MessageController::addNewMessageAction',  '_format' => 'json',  '_route' => 'add_new_message',);
         }
 
         if (0 === strpos($pathinfo, '/log')) {
@@ -197,9 +202,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\AuthorizationController::registerAction',  '_route' => 'register',);
         }
 
-        // myboard
-        if ($pathinfo === '/myboard') {
-            return array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\BoardController::showMyBoardAction',  '_route' => 'myboard',);
+        if (0 === strpos($pathinfo, '/myboard')) {
+            // myboard
+            if (preg_match('#^/myboard(?:/(?P<page>\\d+)(?:/(?P<days>1|7|31))?)?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'myboard')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\BoardController::showMyBoardAction',  'page' => 1,  'days' => 1,));
+            }
+
+            // myboard_with_params
+            if (0 === strpos($pathinfo, '/myboard/page') && preg_match('#^/myboard/page\\-(?P<page>\\d+)/days(?:\\-(?P<days>1|7|31))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'myboard_with_params')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\BoardController::showMyBoardAction',  'page' => 1,  'days' => 1,));
+            }
+
         }
 
         // search_user

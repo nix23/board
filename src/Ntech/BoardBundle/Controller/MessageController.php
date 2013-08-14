@@ -39,7 +39,8 @@ class MessageController extends Controller
 		return $ajaxResponse->getResponse();
 	}
 
-	public function repostMessageAction($originalMessageId)
+	public function repostMessageAction($originalMessageId,
+													$redirectToRouteAfterRepost)
 	{
 		if(!$this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
 			throw $this->createNotFoundException('Authorization required');
@@ -75,7 +76,7 @@ class MessageController extends Controller
 		$em->persist($repost);
 		$em->flush();
 
-		$ajaxResponse->setData("url", $this->generateUrl("main"));
+		$ajaxResponse->setData("url", $this->generateUrl($redirectToRouteAfterRepost));
 		$ajaxResponse->setCallback("redirect");
 		$ajaxResponse->setSuccessfulResult();
 
@@ -158,6 +159,48 @@ class MessageController extends Controller
 		$ajaxResponse->setData("originalMessageId", $originalMessageId);
 		$ajaxResponse->setData("repliesHtml", $repliesHtml);
 		$ajaxResponse->setCallback("updateRepliesList");
+		$ajaxResponse->setSuccessfulResult();
+
+		return $ajaxResponse->getResponse();
+	}
+
+	public function addNewMessageAction()
+	{
+		if(!$this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
+			throw $this->createNotFoundException('Authorization required');
+
+		$loggedUser = $this->getUser();
+
+		$em = $this->getDoctrine()->getEntityManager();
+		$messageRepository = $em->getRepository("NtechBoardBundle:Message");
+
+		$ajaxResponse = new AjaxResponse();
+
+		$request = Request::createFromGlobals();
+		$messageData = $request->request->get('message');
+
+		$newMessage = new Message();
+		$newMessage->setUser($loggedUser);
+		$newMessage->setText($messageData["text"]);
+
+		$validator = $this->get('validator');
+		$errors = $validator->validate($newMessage);
+
+		if(count($errors) > 0)
+		{
+			$errorMsg = "";
+			foreach($errors as $error)
+				$errorMsg .= $error->getMessage() . "\n";
+
+			$ajaxResponse->setError("validationErrors", $errorMsg);
+			return $ajaxResponse->getResponse();
+		}
+
+		$em->persist($newMessage);
+		$em->flush();
+
+		$ajaxResponse->setData("url", $this->generateUrl("myboard"));
+		$ajaxResponse->setCallback("redirect");
 		$ajaxResponse->setSuccessfulResult();
 
 		return $ajaxResponse->getResponse();

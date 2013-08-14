@@ -25,7 +25,7 @@ check_if_message_already_reposted:
       originalMessageId: \d+
 
 repost_message:
-    pattern: /repost_message-{originalMessageId}
+    pattern: /repost_message-{originalMessageId}-{redirectToRouteAfterRepost}
     defaults: { _controller: NtechBoardBundle:Message:repostMessage, _format: json }
     requirements:
       originalMessageId: \d+
@@ -42,6 +42,10 @@ reply_to_message:
     requirements:
       originalMessageId: \d+
 
+add_new_message:
+    pattern: /add_new_message
+    defaults: { _controller: NtechBoardBundle:Message:addNewMessage, _format: json }
+
 login:
     pattern: /login
     defaults: { _controller: NtechBoardBundle:Authorization:login }
@@ -57,8 +61,18 @@ register:
     defaults: { _controller: NtechBoardBundle:Authorization:register }
 
 myboard:
-    pattern: /myboard
-    defaults: { _controller: NtechBoardBundle:Board:showMyBoard }
+    pattern: /myboard/{page}/{days}
+    defaults: { _controller: NtechBoardBundle:Board:showMyBoard, page: 1, days: 1 }
+    requirements:
+      days: 1|7|31
+      page: \d+
+
+myboard_with_params:
+    pattern: /myboard/page-{page}/days-{days}
+    defaults: { _controller: NtechBoardBundle:Board:showMyBoard, page: 1, days: 1 }
+    requirements:
+      days: 1|7|31
+      page: \d+
 
 search_user:
     pattern: /search_user
@@ -68,3 +82,7 @@ search_user:
 my_followers:
     pattern: /my_followers
     defaults: { _controller: NtechBoardBundle:Board:showMyFollowers }
+
+view_profile:
+    pattern: /users/{username}
+    defaults: { _controller: NtechBoardBundle:User:showProfile }
