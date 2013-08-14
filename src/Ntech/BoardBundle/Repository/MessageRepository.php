@@ -34,7 +34,7 @@ class MessageRepository extends EntityRepository
 		return $query->getSingleScalarResult();
 	}
 
-	public function getMessagesTotalCountByUserIds($userIds, $days)
+	public function getMessagesTotalCountByUserIds($userIds, $days = null)
 	{
 		if(!is_array($userIds) || empty($userIds))
 			throw new \Exception("Wrong \$userIds passed to getAllMessagesByUserIds");
@@ -44,18 +44,26 @@ class MessageRepository extends EntityRepository
 
 		$userIdsString = implode(", ", $userIds);
 
-		$query = $this->getEntityManager()->createQuery(
-			"SELECT COUNT(m.id) FROM NtechBoardBundle:Message m JOIN m.user u
-			 WHERE m.addedAt > :date AND u.id IN ($userIdsString)"
-		)->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)));
+		$qb = $this->_em->createQueryBuilder()
+								->select("COUNT(m.id)")
+								->from("NtechBoardBundle:Message", "m")
+								->join("m.user", "u")
+								->where("u.id IN ($userIdsString)");
 
+		if($days)
+		{
+			$qb->andWhere("m.addedAt > :date")
+				->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)));
+		}
+
+		$query = $qb->getQuery();
 		return $query->getSingleScalarResult();
 	}
 
 	public function getAllMessagesByUserIds($userIds = array(),
-														 $days = 1,
-														 $limit = 50,
-														 $offset = 0)
+														 $days = null,
+														 $limit = null,
+														 $offset = null)
 	{
 		if(!is_array($userIds) || empty($userIds))
 			throw new \Exception("Wrong \$userIds passed to getAllMessagesByUserIds");
@@ -65,13 +73,24 @@ class MessageRepository extends EntityRepository
 
 		$userIdsString = implode(", ", $userIds);
 
-		$query = $this->getEntityManager()->createQuery(
-			"SELECT m FROM NtechBoardBundle:Message m JOIN m.user u
-			 WHERE m.addedAt > :date AND u.id IN ($userIdsString) ORDER BY m.addedAt DESC"
-		)->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)))
-		->setMaxResults($limit)
-		->setFirstResult($offset);
+		$qb = $this->_em->createQueryBuilder()
+								->select("m")
+								->from("NtechBoardBundle:Message", "m")
+								->join("m.user", "u")
+								->where("u.id IN ($userIdsString)")
+								->orderBy("m.addedAt", "DESC");
 
+		if($days)
+			$qb->andWhere("m.addedAt > :date")
+				->setParameter('date', date('Y-m-d H:i:s', time() - (60 * 60 * 24 * $days)));
+
+		if($limit)
+			$qb->setMaxResults($limit);
+
+		if($offset)
+			$qb->setFirstResult($offset);
+
+		$query = $qb->getQuery();
 		return $query->getResult();
 	}
 

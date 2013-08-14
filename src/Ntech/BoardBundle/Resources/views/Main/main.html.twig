@@ -106,20 +106,24 @@
             {% for message in messages %}
                 <div class="post">
                     <div class="left">
-                        {% if message.user.avatar %}
-                            <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ message.user.avatar) }}"
-                                 width="80" height="80" />
-                        {% else %}
-                            <div class="no-avatar">No avatar</div>
-                        {% endif %}
+                        <a href="{{ path('view_profile', { username: message.user.username }) }}">
+                            {% if message.user.avatar %}
+                                <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ message.user.avatar) }}"
+                                     width="80" height="80" />
+                            {% else %}
+                                <div class="no-avatar">No avatar</div>
+                            {% endif %}
+                        </a>
                     </div>
 
                     <div class="center">
                         <div class="top">
                             {% if message.originalMessage %}
-                                {{ message.user.username }} reposted {{ message.originalMessage.user.username }} post
+                                <a href="{{ path('view_profile', { username: message.user.username }) }}">{{ message.user.username }}</a>
+                                reposted
+                                <a href="{{ path('view_profile', { username: message.originalMessage.user.username }) }}">{{ message.originalMessage.user.username }}</a> post
                             {% else %}
-                                {{ message.user.username }} added new post
+                                <a href="{{ path('view_profile', { username: message.user.username }) }}">{{ message.user.username }}</a> added new post
                             {% endif %}
                         </div>
 
@@ -232,6 +236,12 @@
 
                 <div class="separator"></div>
             {% endfor %}
+
+            {% if messages is empty %}
+               <div class="no-results">
+                   No messages yet per selected period.
+               </div>
+            {% endif %}
         </div>
 
         <div class="controls">

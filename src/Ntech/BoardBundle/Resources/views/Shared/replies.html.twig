@@ -2,17 +2,19 @@
     {% for reply in replies %}
         <div class="reply">
             <div class="left">
-                {% if reply.user.avatar %}
-                    <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ reply.user.avatar) }}"
-                         width="80" height="80" />
-                {% else %}
-                    <div class="no-avatar">No avatar</div>
-                {% endif %}
+                <a href="{{ path('view_profile', { username: reply.user.username }) }}">
+                    {% if reply.user.avatar %}
+                        <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ reply.user.avatar) }}"
+                             width="80" height="80" />
+                    {% else %}
+                        <div class="no-avatar">No avatar</div>
+                    {% endif %}
+                </a>
             </div>
 
             <div class="center">
                 <div class="top">
-                    {{ reply.user.username }} replied:
+                    <a href="{{ path('view_profile', { username: reply.user.username }) }}">{{ reply.user.username }}</a> replied:
                 </div>
 
                 <div class="bottom">

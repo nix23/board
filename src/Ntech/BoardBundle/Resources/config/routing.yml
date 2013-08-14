@@ -84,5 +84,5 @@ my_followers:
     defaults: { _controller: NtechBoardBundle:Board:showMyFollowers }
 
 view_profile:
-    pattern: /users/{username}
-    defaults: { _controller: NtechBoardBundle:User:showProfile }
+    pattern: /users/{username}/page-{page}
+    defaults: { _controller: NtechBoardBundle:User:showProfile, page: 1 }

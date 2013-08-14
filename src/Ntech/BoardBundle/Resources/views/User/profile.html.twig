@@ -1,0 +1,297 @@
+{% extends 'NtechBoardBundle::layout.html.twig' %}
+
+{% block title %}
+    NTech Board - {{ user.username }} profile
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/ntechboard/css/user/profile.css') }}" type="text/css" media="all">
+{% endblock %}
+
+{% block header %}
+    {{ user.username }} profile
+{% endblock %}
+
+{% block content %}
+    <div id="profile">
+        <!-- User -->
+        <div class="user">
+
+            <div class="left">
+                <div class="avatar">
+                    {% if user.avatar %}
+                        <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ user.avatar) }}"
+                             width="80" height="80" />
+                    {% else %}
+                        <div class="no-avatar">
+                            No avatar
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="info">
+                    <div class="heading">
+                        {{ user.username }}
+                    </div>
+
+                    <div class="follow-status">
+                        {% if app.user %}
+                            {% if not user.isCurrentLoggedUser %}
+                                <span onclick="ajax.process('{{ path('change_followed_by_me_status', { 'userId' : user.id }) }}',
+                                                            false,
+                                                            'modal_no_confirmation')" class="update-follow-status-{{ user.id }} active">
+                                   {% if user.isFollowedByLoggedUser %}
+                                       Unfollow
+                                   {% else %}
+                                       Follow
+                                   {% endif %}
+                                </span>
+                            {% else %}
+                                Your profile
+                            {% endif %}
+                        {% else %}
+                            nTech board user
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="stat">
+                    <div class="label">
+                        {{ user.newMessagesCount }}
+                    </div>
+
+                    <div class="sublabel">
+                        {% if user.newMessagesCount == 1 %}
+                            Message
+                        {% else %}
+                            Messages
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="label">
+                        {{ user.repostsCount }}
+                    </div>
+
+                    <div class="sublabel">
+                        {% if user.repostsCount == 1 %}
+                            Repost
+                        {% else %}
+                            Reposts
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <div class="label">
+                        {{ user.repliesCount }}
+                    </div>
+
+                    <div class="sublabel">
+                        {% if user.repliesCount == 1 %}
+                            Reply
+                        {% else %}
+                            Replies
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- User END -->
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="pagination">
+                <div class="wrapper">
+                    {% for page in pages %}
+
+                        {% if page == currentPage %}
+                            <div class="page selected">
+                                <span class="number">
+                                    {{ page }}
+                                </span>
+                            </div>
+                        {% else %}
+                            <a href="{{ path('view_profile', { 'page': page, 'username': user.username }) }}">
+                                <div class="page active">
+                                    <span class="number">
+                                        {{ page }}
+                                    </span>
+                                </div>
+                            </a>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Controls END -->
+
+        <!-- Posts -->
+        <div class="posts">
+            {% for message in messages %}
+                <div class="post">
+                    <div class="left">
+                        {% if user.avatar %}
+                            <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ user.avatar) }}"
+                                 width="80" height="80" />
+                        {% else %}
+                            <div class="no-avatar">No avatar</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="center">
+                        <div class="top">
+                            {% if message.originalMessage %}
+                                {{ user.username }} reposted
+                                <a href="{{ path('view_profile', { username: message.originalMessage.user.username }) }}">{{ message.originalMessage.user.username }}</a> post
+                            {% elseif message.replyToMessage %}
+                                {{ user.username }} replied to
+                                <a href="{{ path('view_profile', { username: message.replyToMessage.user.username }) }}">{{ message.replyToMessage.user.username }}</a> post
+                            {% else %}
+                                {{ user.username }} added new post
+                            {% endif %}
+                        </div>
+
+                        <div class="bottom">
+                            {% if message.originalMessage %}
+                                {{ message.originalMessage.user.username }} wrote: {{ message.originalMessage.text }}
+                                {% if message.text %}
+                                    <br>{{ user.username }} wrote: {{ message.text }}
+                                {% endif %}
+                            {% elseif message.replyToMessage %}
+                                {{ message.replyToMessage.user.username }} wrote: {{ message.replyToMessage.text }}
+                                <br>{{ user.username }} replied: {{ message.text }}
+                            {% else %}
+                                {{ user.username }} wrote: {{ message.text }}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="label">
+                            {{ message.timeAgoLabel }}
+                        </div>
+
+                        <div class="sublabel">
+                            {{ message.timeAgoSublabel }}
+                        </div>
+                    </div>
+
+                    {% if (not message.replyToMessage) %}
+                        <div class="separator">
+                        </div>
+
+                        <div class="footer">
+                            <div class="follow-status">
+                            </div>
+
+                            {% if not message.user.isCurrentLoggedUser and (not message.replyToMessage) %}
+                                <div class="repost"
+                                     data-original-message-text="{{ message.originalMessage ? message.originalMessage.text : message.text }}"
+                                     data-original-message-username="{{ message.originalMessage ? message.originalMessage.user.username : message.user.username }}"
+                                     data-repost-url="{{ path('repost_message', { 'originalMessageId': message.originalMessage ? message.originalMessage.id : message.id,
+                                                                                  'redirectToRouteAfterRepost': 'myboard' }) }}">
+                                    {% if app.user %}
+                                        <span onclick="ajax.process('{{ path('check_if_message_already_reposted',
+                                              { 'originalMessageId' : message.originalMessage ? message.originalMessage.id : message.id }) }}',
+                                                                    this,
+                                                                    'modal_no_confirmation')">
+                                            Repost
+                                        </span>
+                                    {% else %}
+                                        <span onclick="alert('Please login to repost messages')">
+                                            Repost
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="repost">
+                                </div>
+                            {% endif %}
+
+                            {% if not message.replyToMessage %}
+                                <div class="replies-count">
+                                    <span class="highlight count">
+                                        {{ message.repliesCount }}
+                                    </span>
+                                    <span class="label">
+                                        {% if message.repliesCount == 1 %}
+                                            Reply
+                                        {% else %}
+                                            Replies
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                <div class="toogle-replies"
+                                     data-action="show"
+                                     data-load-replies-url="{{ path('load_replies', { 'messageId': message.id }) }}"
+                                     onclick="html_tools.replies_list.toogle({{ message.id }}, this)">
+                                    Show
+                                </div>
+                                <div class="add-reply">
+                                    {% if app.user %}
+                                        <span onclick="form_tools.message_response_form.load_reply_form('{{ path('reply_to_message', {'originalMessageId': message.id }) }}',
+                                                                                                        '{{ message.user.username }}',
+                                                                                                        '{{ message.text }}',
+                                                                                                        this)">
+                                            Add reply
+                                        </span>
+                                    {% else %}
+                                        <span onclick="alert('Please login to reply to messages.')">
+                                            Add reply
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="replies-wrapper" id="replies-to-message-{{ message.id }}" style="display: none"></div>
+
+                <div class="separator"></div>
+            {% endfor %}
+
+            {% if messages is empty %}
+               <div class="no-results">
+                   No messages yet per selected period.
+               </div>
+            {% endif %}
+        </div>
+        <!-- Posts END -->
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="pagination">
+                <div class="wrapper">
+                    {% for page in pages %}
+
+                        {% if page == currentPage %}
+                            <div class="page selected">
+                                <span class="number">
+                                    {{ page }}
+                                </span>
+                            </div>
+                        {% else %}
+                            <a href="{{ path('view_profile', { 'page': page, 'username': user.username }) }}">
+                                <div class="page active">
+                                    <span class="number">
+                                        {{ page }}
+                                    </span>
+                                </div>
+                            </a>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Controls END -->
+    </div>
+{% endblock %}

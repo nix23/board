@@ -43,3 +43,13 @@
 	font-size: 20px; font-weight: bold;
 	background: rgb(220,220,220);
 }
+
+#search-results .user A:link,
+#search-results .user A:visited,
+#search-results .user A:active {
+	text-decoration: none; color: black;
+}
+
+#search-results .user A:hover {
+	text-decoration: none; color: rgb(17,215,239);
+}

@@ -52,3 +52,13 @@
 .replies .reply-bottom-separator {
 	clear: both; width: 810px; height: 1px;
 }
+
+.replies .reply A:link,
+.replies .reply A:visited,
+.replies .reply A:active {
+	text-decoration: none; color: black;
+}
+
+.replies .reply A:hover {
+	text-decoration: none; color: rgb(17,215,239);
+}

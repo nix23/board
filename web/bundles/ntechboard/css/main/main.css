@@ -152,6 +152,16 @@
 	width: 960px; margin-top: 10px;
 }
 
+#main .posts A:link,
+#main .posts A:visited,
+#main .posts A:active {
+	text-decoration: none; color: black;
+}
+
+#main .posts A:hover {
+	text-decoration: none; color: rgb(17,215,239);
+}
+
 /******************************************************************/
 /*                            Post                                */
 /******************************************************************/
@@ -244,4 +254,11 @@
 
 #main .posts .separator {
 	width: 960px; height: 10px; clear: both;
+}
+
+#main .posts .no-results {
+	width: 450px; height: 150px; line-height: 150px;
+	margin-left: 255px; margin-top: 100px; margin-bottom: 100px;
+	font-size: 20px; font-weight: bold;
+	background: rgb(220,220,220);
 }

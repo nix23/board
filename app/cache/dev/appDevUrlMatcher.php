@@ -231,6 +231,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\BoardController::showMyFollowersAction',  '_route' => 'my_followers',);
         }
 
+        // view_profile
+        if (0 === strpos($pathinfo, '/users') && preg_match('#^/users/(?P<username>[^/]++)/page(?:\\-(?P<page>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'view_profile')), array (  '_controller' => 'Ntech\\BoardBundle\\Controller\\UserController::showProfileAction',  'page' => 1,));
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

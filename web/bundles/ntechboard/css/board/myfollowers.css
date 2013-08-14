@@ -43,3 +43,13 @@
 	font-size: 20px; font-weight: bold;
 	background: rgb(220,220,220);
 }
+
+#myfollowers .follower A:link,
+#myfollowers .follower A:visited,
+#myfollowers .follower A:active {
+	text-decoration: none; color: black;
+}
+
+#myfollowers .follower A:hover {
+	text-decoration: none; color: rgb(17,215,239);
+}

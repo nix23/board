@@ -19,3 +19,13 @@
 	float: left; width: 240px; height: 120px;
 	line-height: 120px;
 }
+
+.header A:link,
+.header A:visited,
+.header A:active {
+	text-decoration: none; color: black; font-weight: bold;
+}
+
+.header A:hover {
+	text-decoration: none; color: rgb(17,215,239);
+}

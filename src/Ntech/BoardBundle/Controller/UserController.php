@@ -3,6 +3,7 @@
 namespace Ntech\BoardBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Ntech\BoardBundle\Utils\AjaxResponse;
+use Ntech\BoardBundle\Utils\Paginator;
 
 class UserController extends Controller
 {
@@ -49,8 +50,53 @@ class UserController extends Controller
 		return $ajaxResponse->getResponse();
 	}
 
-	public function showProfileAction($username)
+	public function showProfileAction($username, $page)
 	{
-		
+		$em = $this->getDoctrine()->getEntityManager();
+		$userRepository = $em->getRepository("NtechBoardBundle:User");
+
+		$user = $userRepository->findOneBy(array("username" => $username));
+		if(!$user)
+		{
+			throw $this->createNotFoundException('User not exists');
+		}
+
+		if($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
+		{
+			$loggedUser = $this->getUser();
+			if($loggedUser->getId() == $user->getId())
+				$user->setAsCurrentLoggedUser();
+
+			if(!$user->isCurrentLoggedUser())
+			{
+				$userRepository->findIfEveryUserIsFollowedByLoggedUser(array($user), $loggedUser);
+			}
+		}
+
+		$userRepository->findMessagesCountPerEveryUser(array($user),
+																	  array("new", "replies", "reposts"));
+
+		$messageRepository = $em->getRepository("NtechBoardBundle:Message");
+		$messagesTotalCount = $messageRepository->getMessagesTotalCountByUserIds(array($user->getId()));
+		$messagesPerPageCount = $this->container->getParameter("posts_count_on_profile");
+
+		$paginator = new Paginator($page, $messagesTotalCount, $messagesPerPageCount);
+		if(!$paginator->is_current_page_valid())
+		{
+			throw $this->createNotFoundException("Wrong page number");
+		}
+
+		$messages = $messageRepository->getAllMessagesByUserIds(array($user->getId()),
+																				  null,
+																				  $messagesPerPageCount,
+																				  $paginator->get_offset());
+		$messageRepository->findRepliesCountPerEveryMessage($messages);
+
+		return $this->render("NtechBoardBundle:User:profile.html.twig", array(
+			'user' => $user,
+			'messages' => $messages,
+			'currentPage' => $page,
+			'pages' => $paginator->make_pages('compact')
+		));
 	}
 }

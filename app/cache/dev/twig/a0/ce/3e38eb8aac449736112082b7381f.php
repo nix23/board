@@ -73,45 +73,52 @@ class __TwigTemplate_a0ce3e38eb8aac449736112082b7381f extends Twig_Template
 
                     <div class=\"left\">
                         <div class=\"avatar\">
-                            ";
+                            <a href=\"";
             // line 24
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("view_profile", array("username" => $this->getAttribute($this->getContext($context, "follower"), "username"))), "html", null, true);
+            echo "\">
+                                ";
+            // line 25
             if ($this->getAttribute($this->getContext($context, "follower"), "avatar")) {
-                // line 25
-                echo "                                <img src=\"";
+                // line 26
+                echo "                                    <img src=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("bundles/ntechboard/img/uploads/" . $this->getAttribute($this->getContext($context, "follower"), "avatar"))), "html", null, true);
                 echo "\"
-                                     width=\"80\" height=\"80\" />
-                            ";
+                                         width=\"80\" height=\"80\" />
+                                ";
             } else {
-                // line 28
-                echo "                                <div class=\"no-avatar\">
-                                    No avatar
-                                </div>
-                            ";
+                // line 29
+                echo "                                    <div class=\"no-avatar\">
+                                        No avatar
+                                    </div>
+                                ";
             }
-            // line 32
-            echo "                        </div>
+            // line 33
+            echo "                            </a>
+                        </div>
                     </div>
 
                     <div class=\"right\">
                         <div class=\"heading\">
-                           ";
-            // line 37
+                           <a href=\"";
+            // line 39
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("view_profile", array("username" => $this->getAttribute($this->getContext($context, "follower"), "username"))), "html", null, true);
+            echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "follower"), "username"), "html", null, true);
-            echo "
+            echo "</a>
                         </div>
 
                         <div class=\"stats\">
                             Messages: ";
-            // line 41
+            // line 43
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "follower"), "newMessagesCount"), "html", null, true);
             echo "
                             Reposts: ";
-            // line 42
+            // line 44
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "follower"), "repostsCount"), "html", null, true);
             echo "
                             Replies: ";
-            // line 43
+            // line 45
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "follower"), "repliesCount"), "html", null, true);
             echo "
                         </div>
@@ -124,18 +131,18 @@ class __TwigTemplate_a0ce3e38eb8aac449736112082b7381f extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['follower'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 50
+        // line 52
         echo "
         ";
-        // line 51
+        // line 53
         if (twig_test_empty($this->getContext($context, "userFollowers"))) {
-            // line 52
+            // line 54
             echo "           <div class=\"no-followers\">
                You have no followers yet.
            </div>
         ";
         }
-        // line 56
+        // line 58
         echo "    </div>
 ";
     }
@@ -152,6 +159,6 @@ class __TwigTemplate_a0ce3e38eb8aac449736112082b7381f extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  139 => 56,  133 => 52,  131 => 51,  128 => 50,  115 => 43,  111 => 42,  107 => 41,  100 => 37,  93 => 32,  87 => 28,  80 => 25,  78 => 24,  71 => 19,  67 => 18,  64 => 17,  61 => 16,  56 => 13,  53 => 12,  47 => 9,  42 => 8,  39 => 7,  34 => 4,  31 => 3,);
+        return array (  146 => 58,  140 => 54,  138 => 53,  135 => 52,  122 => 45,  118 => 44,  114 => 43,  105 => 39,  97 => 33,  91 => 29,  84 => 26,  82 => 25,  78 => 24,  71 => 19,  67 => 18,  64 => 17,  61 => 16,  56 => 13,  53 => 12,  47 => 9,  42 => 8,  39 => 7,  34 => 4,  31 => 3,);
     }
 }

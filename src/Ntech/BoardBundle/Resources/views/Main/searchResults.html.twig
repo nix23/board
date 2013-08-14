@@ -21,20 +21,22 @@
 
                     <div class="left">
                         <div class="avatar">
-                            {% if user.avatar %}
-                                <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ user.avatar) }}"
-                                     width="80" height="80" />
-                            {% else %}
-                                <div class="no-avatar">
-                                    No avatar
-                                </div>
-                            {% endif %}
+                            <a href="{{ path('view_profile', { username: user.username }) }}">
+                                {% if user.avatar %}
+                                    <img src="{{ asset("bundles/ntechboard/img/uploads/" ~ user.avatar) }}"
+                                         width="80" height="80" />
+                                {% else %}
+                                    <div class="no-avatar">
+                                        No avatar
+                                    </div>
+                                {% endif %}
+                            </a>
                         </div>
                     </div>
 
                     <div class="right">
                         <div class="heading">
-                           {{ user.username }}
+                           <a href="{{ path('view_profile', { username: user.username }) }}">{{ user.username }}</a>
                         </div>
 
                         <div class="stats">

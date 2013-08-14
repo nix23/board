@@ -1,0 +1,213 @@
+#profile {
+	width: 960px;
+}
+
+#profile .user {
+	float: left; width: 890px; height: 80px;
+	border: 5px rgb(17,215,239) solid;
+	clear: both; margin-left: 30px; background: rgb(220,220,220);
+}
+
+#profile .user .left {
+	float: left; width: 440px; height: 80px;
+}
+
+#profile .user .left .avatar {
+	float: left; width: 80px; height: 80px; margin-left: 10px;
+}
+
+#profile .user .left .avatar .no-avatar {
+	float: left; width: 80px; height: 80px; background: rgb(210,210,210);
+	font-size: 14px; font-weight: bold; line-height: 80px;
+}
+
+#profile .user .left .info {
+	float: left; margin-left: 20px; width: 330px; height: 80px;
+}
+
+#profile .user .left .info .heading {
+	width: 330px; height: 35px; font-size: 30px; font-weight: bold;
+	text-align: left;
+}
+
+#profile .user .left .info .follow-status {
+	width: 200px; height: 15px; text-align: left;
+	font-weight: bold; font-size: 14px;
+}
+
+#profile .user .left .info .follow-status .active:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#profile .user .right {
+	float: left; width: 450px; height: 80px;
+}
+
+#profile .user .right .stat {
+	float: left; width: 150px; height: 80px;
+}
+
+#profile .user .right .label {
+	width: 150px; height: 35px; line-height: 35px; color: rgb(17,215,239);
+	margin-top: 10px; font-weight: bold; font-size: 28px;
+}
+
+#profile .user .right .sublabel {
+	width: 150px; height: 20px; line-height: 20px;
+	font-weight: bold; font-size: 20px;
+}
+
+#profile .controls {
+	width: 960px; height: 60px; clear: both;
+}
+
+/******************************************************************/
+/*                        Pagination                              */
+/******************************************************************/
+#profile .controls .pagination {
+	position: relative; float: left; width: 300px; height: 60px;
+}
+
+#profile .controls .pagination .wrapper {
+	position: absolute; width: 280px; height: 30px; top: 50%; margin-top: -15px;
+	left: 20px;
+}
+
+#profile .controls .pagination .page {
+	float: left; margin-left: 5px; width: 30px; height: 30px;
+	border: 1px rgb(210,210,210) solid;
+	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+	line-height: 30px; text-align: center;
+}
+
+#profile .controls .pagination .selected {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#profile .controls .pagination .active {
+	background: rgb(240,240,240); color: black;
+}
+
+#profile .controls .pagination .active:hover {
+	background: rgb(17,215,239); color: rgb(255,255,255);
+}
+
+#profile .controls .pagination .number {
+	font-size: 16px; font-weight: bold;
+	letter-spacing: -2px; padding-right: 1px;
+}
+
+#profile .posts {
+	width: 960px; margin-top: 10px;
+}
+
+#profile .posts A:link,
+#profile .posts A:visited,
+#profile .posts A:active {
+	text-decoration: none; color: black;
+}
+
+#profile .posts A:hover {
+	text-decoration: none; color: rgb(17,215,239);
+}
+
+/******************************************************************/
+/*                            Post                                */
+/******************************************************************/
+#profile .posts .post {
+	width: 900px; margin-left: 30px; clear: both;
+}
+
+#profile .posts .post .left {
+	float: left; width: 80px; height: 80px;
+}
+
+#profile .posts .post .left .no-avatar {
+	width: 80px; height: 80px; background: rgb(210,210,210);
+	line-height: 80px; font-size: 14px; font-weight: bold;
+}
+
+#profile .posts .post .center {
+	float: left; width: 605px; margin-left: 15px;
+}
+
+#profile .posts .post .center .top {
+	width: 605px; height: 40px; line-height: 40px;
+	text-align: left; font-size: 26px; font-weight: bold;
+}
+
+#profile .posts .post .center .bottom {
+	width: 605px; text-align: left;
+}
+
+#profile .posts .post .right {
+	float: left; width: 200px; height: 80px; line-height: 80px;
+}
+
+#profile .posts .post .right .label {
+	width: 200px; height: 35px; line-height: 35px; color: rgb(17,215,239);
+	margin-top: 14px; font-weight: bold; font-size: 28px;
+}
+
+#profile .posts .post .right .sublabel {
+	width: 200px; height: 20px; line-height: 20px;
+	font-weight: bold; font-size: 20px;
+}
+
+#profile .posts .post .footer {
+	clear: both; width: 900px; height: 25px; line-height: 25px;
+	background: rgb(220,220,220); margin-top: 5px;
+}
+
+#profile .posts .post .footer .follow-status {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 15px; font-weight: bold; font-size: 14px;
+}
+
+#profile .posts .post .footer .follow-status:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#profile .posts .post .footer .repost {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 250px; font-weight: bold; font-size: 14px;
+}
+
+#profile .posts .post .footer .repost:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#profile .posts .post .footer .replies-count {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	margin-left: 120px; font-weight: bold; font-size: 14px;
+}
+
+#profile .posts .post .footer .toogle-replies {
+	float: left; width: 70px; height: 25px; line-height: 25px;
+	font-weight: bold; font-size: 14px;
+}
+
+#profile .posts .post .footer .add-reply {
+	float: left; width: 100px; height: 25px; line-height: 25px;
+	font-weight: bold; font-size: 14px;
+}
+
+#profile .posts .post .footer .toogle-replies:hover,
+#profile .posts .post .footer .add-reply:hover {
+	color: rgb(17,215,239); cursor: pointer;
+}
+
+#profile .posts .post .footer .highlight {
+	color: rgb(17,215,239);
+}
+
+#profile .posts .separator {
+	width: 960px; height: 10px; clear: both;
+}
+
+#profile .posts .no-results {
+	width: 450px; height: 150px; line-height: 150px;
+	margin-left: 255px; margin-top: 100px; margin-bottom: 100px;
+	font-size: 20px; font-weight: bold;
+	background: rgb(220,220,220);
+}

@@ -25,34 +25,41 @@ class __TwigTemplate_5d3f5c991722e6a72a36992d0556eb70 extends Twig_Template
             // line 3
             echo "        <div class=\"reply\">
             <div class=\"left\">
-                ";
+                <a href=\"";
             // line 5
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("view_profile", array("username" => $this->getAttribute($this->getAttribute($this->getContext($context, "reply"), "user"), "username"))), "html", null, true);
+            echo "\">
+                    ";
+            // line 6
             if ($this->getAttribute($this->getAttribute($this->getContext($context, "reply"), "user"), "avatar")) {
-                // line 6
-                echo "                    <img src=\"";
+                // line 7
+                echo "                        <img src=\"";
                 echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(("bundles/ntechboard/img/uploads/" . $this->getAttribute($this->getAttribute($this->getContext($context, "reply"), "user"), "avatar"))), "html", null, true);
                 echo "\"
-                         width=\"80\" height=\"80\" />
-                ";
+                             width=\"80\" height=\"80\" />
+                    ";
             } else {
-                // line 9
-                echo "                    <div class=\"no-avatar\">No avatar</div>
-                ";
+                // line 10
+                echo "                        <div class=\"no-avatar\">No avatar</div>
+                    ";
             }
-            // line 11
-            echo "            </div>
+            // line 12
+            echo "                </a>
+            </div>
 
             <div class=\"center\">
                 <div class=\"top\">
-                    ";
-            // line 15
+                    <a href=\"";
+            // line 17
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("view_profile", array("username" => $this->getAttribute($this->getAttribute($this->getContext($context, "reply"), "user"), "username"))), "html", null, true);
+            echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "reply"), "user"), "username"), "html", null, true);
-            echo " replied:
+            echo "</a> replied:
                 </div>
 
                 <div class=\"bottom\">
                     ";
-            // line 19
+            // line 21
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "reply"), "text"), "html", null, true);
             echo "
                 </div>
@@ -61,14 +68,14 @@ class __TwigTemplate_5d3f5c991722e6a72a36992d0556eb70 extends Twig_Template
             <div class=\"right\">
                 <div class=\"label\">
                     ";
-            // line 25
+            // line 27
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "reply"), "timeAgoLabel"), "html", null, true);
             echo "
                 </div>
 
                 <div class=\"sublabel\">
                     ";
-            // line 29
+            // line 31
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "reply"), "timeAgoSublabel"), "html", null, true);
             echo "
                 </div>
@@ -82,7 +89,7 @@ class __TwigTemplate_5d3f5c991722e6a72a36992d0556eb70 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reply'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 39
         echo "
     <div class=\"reply-bottom-separator\">
     </div>
@@ -101,6 +108,6 @@ class __TwigTemplate_5d3f5c991722e6a72a36992d0556eb70 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  86 => 37,  72 => 29,  65 => 25,  56 => 19,  49 => 15,  43 => 11,  39 => 9,  32 => 6,  30 => 5,  26 => 3,  22 => 2,  19 => 1,);
+        return array (  93 => 39,  79 => 31,  72 => 27,  63 => 21,  54 => 17,  47 => 12,  43 => 10,  36 => 7,  34 => 6,  30 => 5,  26 => 3,  22 => 2,  19 => 1,);
     }
 }
