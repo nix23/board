@@ -13,7 +13,7 @@ occurs, run "php vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBun
 
 4. Edit app/config/parameters.yml configuration file;
 
-5. Create database with "doctrine:schema:create" command;
+5. Create database with "php app/console doctrine:database:create" command;
 
 6. Database schema can be generated with "php app/console doctrine:schema:update --force" command;
 
