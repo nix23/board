@@ -14,7 +14,7 @@ class UserController extends Controller
 
 		$loggedUser = $this->getUser();
 
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$userRepository = $em->getRepository("NtechBoardBundle:User");
 		$changeFollowedByMeStatusUser = $userRepository->find($userId);
 
@@ -52,7 +52,7 @@ class UserController extends Controller
 
 	public function showProfileAction($username, $page)
 	{
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$userRepository = $em->getRepository("NtechBoardBundle:User");
 
 		$user = $userRepository->findOneBy(array("username" => $username));

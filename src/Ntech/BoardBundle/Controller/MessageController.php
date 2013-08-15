@@ -15,7 +15,7 @@ class MessageController extends Controller
 
 		$loggedUser = $this->getUser();
 
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$messageRepository = $em->getRepository("NtechBoardBundle:Message");
 
 		$ajaxResponse = new AjaxResponse();
@@ -47,7 +47,7 @@ class MessageController extends Controller
 
 		$loggedUser = $this->getUser();
 
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$messageRepository = $em->getRepository("NtechBoardBundle:Message");
 
 		$ajaxResponse = new AjaxResponse();
@@ -85,7 +85,7 @@ class MessageController extends Controller
 
 	public function loadRepliesAction($messageId)
 	{
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$messageRepository = $em->getRepository("NtechBoardBundle:Message");
 
 		$ajaxResponse = new AjaxResponse();
@@ -115,7 +115,7 @@ class MessageController extends Controller
 
 		$loggedUser = $this->getUser();
 
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$messageRepository = $em->getRepository("NtechBoardBundle:Message");
 
 		$ajaxResponse = new AjaxResponse();
@@ -171,7 +171,7 @@ class MessageController extends Controller
 
 		$loggedUser = $this->getUser();
 
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$messageRepository = $em->getRepository("NtechBoardBundle:Message");
 
 		$ajaxResponse = new AjaxResponse();

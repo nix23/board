@@ -14,7 +14,7 @@ class BoardController extends Controller
 		$loggedUser = $this->getUser();
 		$fetchUserMessagesIds[] = $loggedUser->getId();
 
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$userRepository = $em->getRepository('NtechBoardBundle:User');
 		$user = $userRepository->getWithFollowedUsers($loggedUser->getId());
 		$followedUsers = $user->getFollowedByMe();
@@ -80,7 +80,7 @@ class BoardController extends Controller
 
 	public function showMyFollowersAction()
 	{
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 
 		$loggedUser = $this->getUser();
 		$user = $em->getRepository('NtechBoardBundle:User')->getWithFollowers($loggedUser->getId());

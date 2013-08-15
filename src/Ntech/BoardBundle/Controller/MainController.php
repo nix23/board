@@ -9,7 +9,7 @@ class MainController extends Controller
 {
 	public function indexAction($page, $days)
 	{
-		$em = $this->getDoctrine()->getEntityManager();
+		$em = $this->getDoctrine()->getManager();
 		$messagesRepository = $em->getRepository('NtechBoardBundle:Message');
 		$usersRepository = $em->getRepository('NtechBoardBundle:User');
 
@@ -81,7 +81,7 @@ class MainController extends Controller
 		}
 		else
 		{
-			$em = $this->getDoctrine()->getEntityManager();
+			$em = $this->getDoctrine()->getManager();
 			$users = $em->getRepository('NtechBoardBundle:User')->findAllByUsername($searchUsername);
 
 			$em->getRepository('NtechBoardBundle:User')->findMessagesCountPerEveryUser($users,
